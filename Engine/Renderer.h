@@ -1,0 +1,41 @@
+#pragma once
+#include "Vector3.h"
+#include <SDL3/SDL.h>
+#include <SDL3_ttf/SDL_ttf.h>
+
+
+namespace gl
+{
+	class Renderer
+	{
+	public:
+		bool Initialize(const char* name, int width, int height);
+		void Shutdown();
+
+		void Clear() const;
+		void Present() const;
+
+		void SetColor(Uint8 r, Uint8 g, Uint8 b, Uint8 a = 255) const;
+		void SetColor(float r, float g, float b, float a = 1.0f) const;
+		void SetColor(const Color& color) const;
+
+		void DrawPoint(float x, float y) const;
+		void DrawLine(float x1, float y1, float x2, float y2) const;
+		void DrawFillRect(float x, float y, float w, float h) const;
+		void DrawRect(float x, float y, float w, float h) const;
+		void DrawModel(const class Model& model, const struct Transform& transform) const;
+		void DrawDebugText(float x, float y, const char* text) const;
+
+		int GetWidth() const { return m_width; }
+		int GetHeight() const { return m_height; }
+
+	private:
+		friend class Text;
+
+		SDL_Window* m_window = nullptr;
+		SDL_Renderer* m_renderer = nullptr;
+
+		int m_width = 0;
+		int m_height = 0;
+	};
+}
