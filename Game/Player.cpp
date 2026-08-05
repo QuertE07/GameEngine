@@ -7,8 +7,8 @@ void Player::Update(float dt)
     gl::Vector2 inputDir{ (float)gl::Engine::Get().GetInput().GetKeyDown(SDL_SCANCODE_RIGHT) - gl::Engine::Get().GetInput().GetKeyDown(SDL_SCANCODE_LEFT),
                           (float)gl::Engine::Get().GetInput().GetKeyDown(SDL_SCANCODE_DOWN) - gl::Engine::Get().GetInput().GetKeyDown(SDL_SCANCODE_UP)};
 
-    float inputMagnitude = std::sqrt(std::pow(inputDir.x, 2) + std::pow(inputDir.y, 2));
-    inputDir /= gl::Max(inputMagnitude, 1.0f);
+    double inputMagnitude = std::sqrt(std::pow(inputDir.x, 2) + std::pow(inputDir.y, 2));
+    inputDir /= gl::Max((float)inputMagnitude, 1.0f);
 
     Actor::SetVelocity(Actor::GetVelocity() + inputDir * m_speed);
 

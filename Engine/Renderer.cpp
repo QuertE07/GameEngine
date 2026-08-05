@@ -3,6 +3,7 @@
 #include "Model.h"
 #include "Transform.h"
 #include "MathUtils.h"
+#include "Texture.h"
 
 #include <iostream>
 
@@ -124,4 +125,18 @@ void gl::Renderer::DrawModel(const Model& model, const Transform& transform) con
 void gl::Renderer::DrawDebugText(float x, float y, const char* text) const
 {
     SDL_RenderDebugText(m_renderer, x, y, text);
+}
+
+void gl::Renderer::DrawTexture(Texture* texture, float x, float y)
+{
+    Vector2 size = texture->GetSize();
+
+        SDL_FRect destRect;
+    destRect.x = x;
+    destRect.y = y;
+    destRect.w = texture->GetSize().x;
+    destRect.h = texture->GetSize().y;
+
+    // https://wiki.libsdl.org/SDL3/SDL_RenderTexture
+    SDL_RenderTexture(m_renderer, texture->m_texture, NULL, &destRect);
 }

@@ -66,6 +66,9 @@ int main()
     Engine::Get().GetAudio().AddSound("CompleteCharge", "audio/sparkle.mp3");
     Engine::Get().GetAudio().AddSound("FlowerWilt", "audio/wilt.mp3");
 
+    std::shared_ptr<Texture> texture = std::make_shared<Texture>();
+    texture->Load("textures/fiddlebothert.jpg", Engine::Get().GetRenderer());
+
     bool quit = false;
 
     while (!quit) {
@@ -95,6 +98,10 @@ int main()
         game.Draw(Engine::Get().GetRenderer());
 
         Engine::Get().GetPS().Draw(Engine::Get().GetRenderer());
+
+
+        Engine::Get().GetRenderer().DrawTexture(texture.get(), 30, 30);
+
 
         Engine::Get().GetRenderer().Present();
     }
