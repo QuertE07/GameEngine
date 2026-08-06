@@ -3,7 +3,7 @@
 
 struct PlayerDesc : public gl::ActorDesc
 {
-	float speed;
+	float speed = 0.0f;
 };
 
 class Player : public gl::Actor
@@ -15,7 +15,7 @@ public:
 		m_speed{ playerDesc.speed }
 	{}
 	Player(const gl::Transform& transform) : Actor{ transform } {}
-	Player(const gl::Transform& transform, const gl::AnimatedModel& model) : Actor{ transform, model } {}
+	Player(const gl::Transform& transform, const gl::Model& model) : Actor{ transform, model } {}
 
 	void Update(float dt) override;
 	void Draw(const class gl::Renderer& renderer) const;

@@ -20,10 +20,32 @@ public:
     Object& operator = (const Object& object) { std::cout << "assignment\n"; return *this; }
 };
 
+uint32_t seed = 1234;
+
+uint32_t RNG()
+{
+    seed = (seed * 1103515245) + 12345;
+    return seed;
+}
+
 int main()
 {
+    for (size_t i = 0; i < 10; i++) std::cout << RNG() << " ";
+    std::cout << std::endl;
+    
+    for (size_t i = 0; i < 10; i++) std::cout << RNG() << " ";
+    std::cout << std::endl;
+    
+    //srand((unsigned int)time(NULL));
+    SeedRandom((unsigned int)time(NULL));
+    for (size_t i = 0; i < 10; i++) std::cout << rand() << " ";
+    std::cout << std::endl;
+
+    //return 0;
+
     std::cout << "====================-object-=====================\n";
     {
+
         Object objectA;
         Object objectB = objectA;
         Object objectC;
@@ -66,8 +88,7 @@ int main()
     Engine::Get().GetAudio().AddSound("CompleteCharge", "audio/sparkle.mp3");
     Engine::Get().GetAudio().AddSound("FlowerWilt", "audio/wilt.mp3");
 
-    std::shared_ptr<Texture> texture = std::make_shared<Texture>();
-    texture->Load("textures/fiddlebothert.jpg", Engine::Get().GetRenderer());
+    auto texture = Resources().Get<Texture>("textures/jakeJunior.jpg", Engine::Get().GetRenderer());
 
     bool quit = false;
 
@@ -100,7 +121,7 @@ int main()
         Engine::Get().GetPS().Draw(Engine::Get().GetRenderer());
 
 
-        Engine::Get().GetRenderer().DrawTexture(texture.get(), 30, 30);
+        Engine::Get().GetRenderer().DrawTexture(*texture.get(), 30, 30, 45);
 
 
         Engine::Get().GetRenderer().Present();

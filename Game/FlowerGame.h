@@ -20,7 +20,7 @@ public:
 	bool Initialize() override;
 
 	void Update(float dt) override;
-	void Draw(const class gl::Renderer& renderer) override;
+	void Draw(class gl::Renderer& renderer) override;
 
 	void LifeLost();
 	void AddPoints(int points) { m_score += points; }
@@ -41,13 +41,9 @@ private:
 	int m_spawnCount = 0;
 	int m_lostFlowers = 0;
 
-	gl::Font* m_titleFont{ nullptr };
 	gl::Text* m_titleText{ nullptr };
 
-	gl::Font* m_gameOverFont{ nullptr };
 	gl::Text* m_gameOverText{ nullptr };
-
-	gl::Font* m_gameFont{ nullptr };
 
 	gl::Text* m_scoreText{ nullptr };
 	gl::Text* m_livesText{ nullptr };

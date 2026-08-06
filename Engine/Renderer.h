@@ -26,7 +26,7 @@ namespace gl
 		void DrawRect(float x, float y, float w, float h) const;
 		void DrawModel(const class Model& model, const struct Transform& transform) const;
 		void DrawDebugText(float x, float y, const char* text) const;
-		void DrawTexture(class Texture* texture, float x, float y);
+		void DrawTexture(class Texture& texture, float x, float y, float angle = 0.0f, float scale = 1.0f, bool flipH = false);
 
 		int GetWidth() const { return m_width; }
 		int GetHeight() const { return m_height; }

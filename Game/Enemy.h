@@ -18,7 +18,7 @@ public:
         m_speed{ speed }
     { }
 
-    Enemy(float speed, const gl::Transform& transform, const gl::AnimatedModel& model) :
+    Enemy(float speed, const gl::Transform& transform, const gl::Model& model) :
         Actor{ transform, model },
         m_speed{ speed }
     { }

@@ -21,7 +21,10 @@ namespace gl
 		float GetFPS() const { return m_fps; }
 		void SetFPS(float fps) { m_fps = fps; }
 		const std::vector<Mesh>& GetFrame() const { return m_frames.at(m_index).GetMeshes(); }
-		const std::vector<Mesh>& GetFrame(unsigned int index) const { if (index < m_frames.size()) return m_frames.at(index).GetMeshes(); }
+		const std::vector<Mesh>& GetFrame(unsigned int index) const {
+			if (index < m_frames.size()) return m_frames.at(index).GetMeshes();
+			else return m_frames.at(0).GetMeshes();
+		}
 		void SetFrame(const Model model) { m_frames.at(m_index) = model; }
 		void SetFrame(const Model model, unsigned int index) { if (index < m_frames.size()) m_frames.at(index) = model; }
 

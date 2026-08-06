@@ -13,6 +13,7 @@
 #include "Input.h"
 #include "EngineTime.h"
 #include "ParticleSystem.h"
+#include "ResourceManager.h"
 #include "Audio.h"
 #include "Texture.h"
 

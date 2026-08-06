@@ -3,7 +3,7 @@
 
 struct FlowerDesc : public gl::ActorDesc
 {
-	float decayRate;
+	float decayRate = 0.0f;
 };
 
 class Flower : public gl::Actor
@@ -17,7 +17,7 @@ public:
 		m_lifespan = 10.0f;
 	}
 	Flower(const gl::Transform& transform) : Actor{ transform } {}
-	Flower(const gl::Transform& transform, const gl::AnimatedModel& model) : Actor{ transform, model } {}
+	Flower(const gl::Transform& transform, const gl::Model& model) : Actor{ transform, model } {}
 
 	void Update(float dt) override;
 

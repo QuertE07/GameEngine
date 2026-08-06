@@ -14,7 +14,7 @@ namespace gl
 		virtual void Shutdown() {}
 
 		virtual void Update(float dt);
-		virtual void Draw(const class Renderer& renderer);
+		virtual void Draw(class Renderer& renderer);
 
 		void SetScene(Scene* scene) { m_scene = scene; }
 

@@ -1,5 +1,7 @@
 #pragma once
 
+#include "Resource.h"
+
 #include <SDL3_ttf/SDL_ttf.h>
 #include<string>
 
@@ -7,7 +9,8 @@ struct TTF_Font;
 
 namespace gl
 {
-	class Font {
+	class Font : public Resource
+	{
 	public:
 		Font() = default;
 		~Font();

@@ -16,13 +16,11 @@ namespace gl
 
         m_transform.position += (m_velocity * dt);
         m_velocity *= 0.9f;
-
-        m_model.Update(dt);
     }
 
     void Actor::Draw(const Renderer& renderer) const
     {
-        renderer.DrawModel(m_model.GetFrame(), m_transform);
+        renderer.DrawModel(m_model, m_transform);
     }
 
     float Actor::GetRadius() const

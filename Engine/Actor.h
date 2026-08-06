@@ -1,7 +1,7 @@
 #pragma once
 
 #include "Transform.h"
-#include "AnimatedModel.h"
+#include "Model.h"
 #include <string>
 
 namespace gl
@@ -12,9 +12,9 @@ namespace gl
     {
         std::string name;
         std::string tag;
-        Transform transform;
+        Transform transform {};
         Vector2 velocity = { 0.0f, 0.0f };
-        AnimatedModel model;
+        Model model;
     };
 
     class Actor
@@ -31,7 +31,7 @@ namespace gl
         }
 
         Actor(const Transform& transform) : m_transform{ transform } {}
-        Actor(const Transform& transform, const AnimatedModel& model) : m_transform{ transform }, m_model{ model } {}
+        Actor(const Transform& transform, const Model& model) : m_transform{ transform }, m_model{ model } {}
 
         virtual void Update(float dt);
         virtual void Draw(const class Renderer& renderer) const;
@@ -69,7 +69,7 @@ namespace gl
         float m_lifespan{ 0 };
         bool m_destroyed{ false };
 
-        AnimatedModel m_model;
+        Model m_model;
         Scene* m_scene = nullptr;
     };
 }

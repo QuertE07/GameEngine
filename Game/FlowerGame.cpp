@@ -15,25 +15,14 @@ bool FlowerGame::Initialize()
     m_scene = new Scene();
     m_scene->SetGame(this);
 
-    m_titleFont = new Font();
-    m_titleFont->Load("fonts/Hyacinth.ttf", 120);
-
-    m_titleText = new Text(m_titleFont);
+    m_titleText = new Text(Resources().GetWithID<Font>("title_font", "fonts/Hyacinth.ttf", 120));
     m_titleText->Create(Engine::Get().GetRenderer(), "Butterfly Pollinator", Color{ 1.0f, 1.0f, 1.0f });
 
-    m_gameOverFont = new Font();
-    m_gameOverFont->Load("fonts/Hyacinth.ttf", 140);
-
-    m_gameOverText = new Text(m_gameOverFont);
+    m_gameOverText = new Text(Resources().GetWithID<Font>("gameOver_font", "fonts/Hyacinth.ttf", 140));
     m_gameOverText->Create(Engine::Get().GetRenderer(), "Game Over", Color{ 1.0f, 0.4f, 0.6f });
 
-    m_gameFont = new Font();
-    m_gameFont->Load("fonts/Hyacinth.ttf", 60);
-
-    m_scoreText = new Text(m_gameFont);
-    m_livesText = new Text(m_gameFont);
-
-
+    m_scoreText = new Text(Resources().GetWithID<Font>("score_font", "fonts/Hyacinth.ttf", 60));
+    m_livesText = new Text(Resources().GetWithID<Font>("lives_font", "fonts/Hyacinth.ttf", 60));
 
     return false;
 }
@@ -85,7 +74,7 @@ void FlowerGame::Update(float dt)
     Game::Update(dt);
 }
 
-void FlowerGame::Draw(const Renderer& renderer)
+void FlowerGame::Draw(Renderer& renderer)
 {
     switch (m_gamestate)
     {
@@ -127,7 +116,7 @@ void FlowerGame::SpawnPlayer()
     playerDesc.tag = "Player";
     playerDesc.transform = Transform{ Vector2{ 960.0f, 540.0f }, 0, 10 };
     playerDesc.velocity = Vector2{ 0.0f, 0.0f };
-    playerDesc.model = Assets::playerModel;
+    playerDesc.model = Assets::playerModel.GetFrame(0);
     playerDesc.speed = 100.0f;
 
     std::unique_ptr<Player> player = std::make_unique<Player>( playerDesc );
@@ -141,7 +130,7 @@ void FlowerGame::SpawnFlower(float decayRate)
     flowerDesc.tag = "Flower";
     flowerDesc.transform = Transform{ Vector2{ RandomFloat(100.0f, 1820.0f), RandomFloat(100.0f, 980.0f) }, 0, 10};
     flowerDesc.velocity = Vector2{ 0.0f, 0.0f };
-    flowerDesc.model = Assets::flowerModel;
+    flowerDesc.model = Assets::flowerModel.GetFrame(0);
     flowerDesc.decayRate = decayRate;
 
     std::unique_ptr<Flower> flower = std::make_unique<Flower>( flowerDesc );

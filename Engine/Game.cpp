@@ -9,7 +9,7 @@ namespace gl
 		m_scene->Update(dt);
 	}
 
-	void Game::Draw(const Renderer& renderer)
+	void Game::Draw(Renderer& renderer)
 	{
 		m_scene->Draw(renderer);
 	}
