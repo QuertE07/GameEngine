@@ -127,16 +127,15 @@ void gl::Renderer::DrawDebugText(float x, float y, const char* text) const
     SDL_RenderDebugText(m_renderer, x, y, text);
 }
 
-void gl::Renderer::DrawTexture(Texture& texture, float x, float y, float angle, float scale, bool flipH)
+void gl::Renderer::DrawTexture(Texture& texture, float x, float y, float angle, float scale, bool flipH) const
 {
-    Vector2 size = texture.GetSize();
+    Vector2 size = texture.m_size;
 
     SDL_FRect destRect;
-    destRect.x = x;
-    destRect.y = y;
     destRect.w = size.x * scale;
     destRect.h = size.y * scale;
+    destRect.x = x - (destRect.w * 0.5f);
+    destRect.y = y - (destRect.h * 0.5f);
 
-    // https://wiki.libsdl.org/SDL3/SDL_RenderTexture
-    SDL_RenderTextureRotated(m_renderer, texture.m_texture, NULL, &destRect, angle, NULL, (flipH) ? SDL_FLIP_HORIZONTAL : SDL_FLIP_NONE);
+    SDL_RenderTextureRotated(m_renderer, texture.m_texture, NULL, &destRect, angle, NULL, flipH ? SDL_FLIP_HORIZONTAL : SDL_FLIP_NONE);
 }

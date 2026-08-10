@@ -12,9 +12,9 @@ void Flower::Update(float dt)
 		{
 			gl::Particle particle;
 			particle.position = m_transform.position;
-			particle.color = { 1.0f, 0.0f, 7.0f };
+			particle.sprite = gl::Resources().Get<gl::Texture>("textures/Evill.png", gl::Engine::Get().GetRenderer());
 			particle.lifespan = gl::RandomFloat(0.5f, 1.5f);
-			particle.velocity = { gl::RandomFloat(-50.0f, 50.0f), gl::RandomFloat(-50.0f, 50.0f) };
+			particle.velocity = { gl::RandomFloat(-100.0f, 100.0f), gl::RandomFloat(-100.0f, 100.0f) };
 
 			gl::Engine::Get().GetPS().AddParticle(particle);
 		}
@@ -23,13 +23,16 @@ void Flower::Update(float dt)
 	{
 		m_pollination += dt;
 
-		gl::Particle particle;
-		particle.position = m_transform.position;
-		particle.color = { 1.0f, 1.0f, 0.0f };
-		particle.lifespan = gl::RandomFloat(0.5f, 1.5f);
-		particle.velocity = { gl::RandomFloat(-50.0f, 50.0f), gl::RandomFloat(-50.0f, 50.0f) };
+		if (gl::RandomInt(10) == 0)
+		{
+			gl::Particle particle;
+			particle.position = m_transform.position;
+			particle.sprite = gl::Resources().Get<gl::Texture>("textures/Sparklyy.png", gl::Engine::Get().GetRenderer());
+			particle.lifespan = gl::RandomFloat(0.5f, 1.5f);
+			particle.velocity = { gl::RandomFloat(-100.0f, 100.0f), gl::RandomFloat(-100.0f, 100.0f) };
 
-		gl::Engine::Get().GetPS().AddParticle(particle);
+			gl::Engine::Get().GetPS().AddParticle(particle);
+		}
 	}
 	m_decaying = true;
 
@@ -49,9 +52,9 @@ void Flower::Update(float dt)
 		{
 			gl::Particle particle;
 			particle.position = m_transform.position;
-			particle.color = { 1.0f, 0.0f, 7.0f };
+			particle.sprite = gl::Resources().Get<gl::Texture>("textures/Evill.png", gl::Engine::Get().GetRenderer());
 			particle.lifespan = gl::RandomFloat(0.5f, 1.5f);
-			particle.velocity = { gl::RandomFloat(-200.0f, 200.0f), gl::RandomFloat(-200.0f, 200.0f) };
+			particle.velocity = { gl::RandomFloat(-300.0f, 300.0f), gl::RandomFloat(-300.0f, 300.0f) };
 
 			gl::Engine::Get().GetPS().AddParticle(particle);
 		}

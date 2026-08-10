@@ -2,6 +2,8 @@
 #include "Scene.h"
 #include "Actor.h"
 
+#include <ranges>
+
 namespace gl
 {
 	void Scene::AddActor(std::unique_ptr<Actor> actor)
@@ -36,7 +38,7 @@ namespace gl
 
 	void Scene::Draw(const class Renderer& renderer)
 	{
-		for (auto& actor : m_actors) {
+		for (auto& actor : m_actors | std::views::reverse) {
 			actor->Draw(renderer);
 		}
 	}

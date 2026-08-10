@@ -1,6 +1,8 @@
 #pragma once
 #include "Game.h"
 #include "Text.h"
+#include "Texture.h"
+#include "Resource.h"
 
 class FlowerGame : public gl::Game
 {
@@ -40,6 +42,10 @@ private:
 	float m_spawnTime = 6.0f;
 	int m_spawnCount = 0;
 	int m_lostFlowers = 0;
+
+	gl::res_t<gl::Texture> m_playerTexture{ nullptr };
+	gl::res_t<gl::Texture> m_flowerTexture{ nullptr };
+	gl::res_t<gl::Texture> m_bgTexture{ nullptr };
 
 	gl::Text* m_titleText{ nullptr };
 

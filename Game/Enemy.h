@@ -13,13 +13,8 @@ public:
         m_speed{ enemyDesc.speed }
     { }
 
-    Enemy(float speed, const gl::Transform& transform) :
-        Actor{ transform },
-        m_speed{ speed }
-    { }
-
-    Enemy(float speed, const gl::Transform& transform, const gl::Model& model) :
-        Actor{ transform, model },
+    Enemy(float speed, const gl::Transform& transform, const std::shared_ptr<gl::Texture> sprite) :
+        Actor{ transform, sprite },
         m_speed{ speed }
     { }
 

@@ -30,50 +30,50 @@ uint32_t RNG()
 
 int main()
 {
-    for (size_t i = 0; i < 10; i++) std::cout << RNG() << " ";
-    std::cout << std::endl;
-    
-    for (size_t i = 0; i < 10; i++) std::cout << RNG() << " ";
-    std::cout << std::endl;
-    
-    //srand((unsigned int)time(NULL));
-    SeedRandom((unsigned int)time(NULL));
-    for (size_t i = 0; i < 10; i++) std::cout << rand() << " ";
-    std::cout << std::endl;
+    //for (size_t i = 0; i < 10; i++) std::cout << RNG() << " ";
+    //std::cout << std::endl;
+    //
+    //for (size_t i = 0; i < 10; i++) std::cout << RNG() << " ";
+    //std::cout << std::endl;
+    //
+    ////srand((unsigned int)time(NULL));
+    //SeedRandom((unsigned int)time(NULL));
+    //for (size_t i = 0; i < 10; i++) std::cout << rand() << " ";
+    //std::cout << std::endl;
 
     //return 0;
 
-    std::cout << "====================-object-=====================\n";
-    {
+    //std::cout << "====================-object-=====================\n";
+    //{
 
-        Object objectA;
-        Object objectB = objectA;
-        Object objectC;
-        objectC = objectA;
-    }
+    //    Object objectA;
+    //    Object objectB = objectA;
+    //    Object objectC;
+    //    objectC = objectA;
+    //}
 
-    std::cout << "\n====================-raw pointers-=====================\n";
-    {
-        Object* objectA = new Object;
-        std::cout << objectA << std::endl;
-        Object* objectB = new Object(*objectA);
-        std::cout << objectB << std::endl;
-        Object* objectC = nullptr;
-        objectC = objectA;
-        std::cout << objectC << std::endl;
-        
-        delete objectA;
-        delete objectB;
-    }
+    //std::cout << "\n====================-raw pointers-=====================\n";
+    //{
+    //    Object* objectA = new Object;
+    //    std::cout << objectA << std::endl;
+    //    Object* objectB = new Object(*objectA);
+    //    std::cout << objectB << std::endl;
+    //    Object* objectC = nullptr;
+    //    objectC = objectA;
+    //    std::cout << objectC << std::endl;
+    //    
+    //    delete objectA;
+    //    delete objectB;
+    //}
 
-    std::cout << "\n====================-smart pointers-=====================\n";
-    {
-        std::unique_ptr<Object> objectA = std::make_unique<Object>();
-        std::cout << objectA.get() << std::endl;
-        std::unique_ptr<Object> objectB;
-        objectB = std::move(objectA);
-        std::cout << objectB.get() << std::endl;
-    }
+    //std::cout << "\n====================-smart pointers-=====================\n";
+    //{
+    //    std::unique_ptr<Object> objectA = std::make_unique<Object>();
+    //    std::cout << objectA.get() << std::endl;
+    //    std::unique_ptr<Object> objectB;
+    //    objectB = std::move(objectA);
+    //    std::cout << objectB.get() << std::endl;
+    //}
 
     //return 0;
 
@@ -87,8 +87,6 @@ int main()
     Engine::Get().GetAudio().AddSound("bgm", "audio/bgm.mp3");
     Engine::Get().GetAudio().AddSound("CompleteCharge", "audio/sparkle.mp3");
     Engine::Get().GetAudio().AddSound("FlowerWilt", "audio/wilt.mp3");
-
-    auto texture = Resources().Get<Texture>("textures/jakeJunior.jpg", Engine::Get().GetRenderer());
 
     bool quit = false;
 
@@ -119,9 +117,6 @@ int main()
         game.Draw(Engine::Get().GetRenderer());
 
         Engine::Get().GetPS().Draw(Engine::Get().GetRenderer());
-
-
-        Engine::Get().GetRenderer().DrawTexture(*texture.get(), 30, 30, 45);
 
 
         Engine::Get().GetRenderer().Present();

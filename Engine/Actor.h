@@ -1,7 +1,7 @@
 #pragma once
 
 #include "Transform.h"
-#include "Model.h"
+#include "Texture.h"
 #include <string>
 
 namespace gl
@@ -14,7 +14,7 @@ namespace gl
         std::string tag;
         Transform transform {};
         Vector2 velocity = { 0.0f, 0.0f };
-        Model model;
+        std::shared_ptr<Texture> sprite;
     };
 
     class Actor
@@ -26,12 +26,11 @@ namespace gl
             m_tag{ actorDesc.tag },
             m_transform{ actorDesc.transform },
             m_velocity{ actorDesc.velocity },
-            m_model{ actorDesc.model }
+            m_sprite{ actorDesc.sprite }
         {
         }
 
-        Actor(const Transform& transform) : m_transform{ transform } {}
-        Actor(const Transform& transform, const Model& model) : m_transform{ transform }, m_model{ model } {}
+        Actor(const Transform& transform, const std::shared_ptr<Texture> sprite) : m_transform{ transform }, m_sprite{ sprite } {}
 
         virtual void Update(float dt);
         virtual void Draw(const class Renderer& renderer) const;
@@ -69,7 +68,7 @@ namespace gl
         float m_lifespan{ 0 };
         bool m_destroyed{ false };
 
-        Model m_model;
+        std::shared_ptr<Texture> m_sprite;
         Scene* m_scene = nullptr;
     };
 }

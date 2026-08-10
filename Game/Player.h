@@ -14,8 +14,7 @@ public:
 		Actor{ playerDesc },
 		m_speed{ playerDesc.speed }
 	{}
-	Player(const gl::Transform& transform) : Actor{ transform } {}
-	Player(const gl::Transform& transform, const gl::Model& model) : Actor{ transform, model } {}
+	Player(const gl::Transform& transform, const std::shared_ptr<gl::Texture> sprite) : Actor{ transform, sprite } {}
 
 	void Update(float dt) override;
 	void Draw(const class gl::Renderer& renderer) const;

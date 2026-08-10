@@ -1,6 +1,8 @@
 #pragma once
 #include "Actor.h"
 
+#include "Texture.h"
+
 struct FlowerDesc : public gl::ActorDesc
 {
 	float decayRate = 0.0f;
@@ -16,8 +18,7 @@ public:
 	{
 		m_lifespan = 10.0f;
 	}
-	Flower(const gl::Transform& transform) : Actor{ transform } {}
-	Flower(const gl::Transform& transform, const gl::Model& model) : Actor{ transform, model } {}
+	Flower(const gl::Transform& transform, const std::shared_ptr<gl::Texture> sprite) : Actor{ transform, sprite } {}
 
 	void Update(float dt) override;
 

@@ -44,9 +44,8 @@ void ParticleSystem::Draw(const Renderer& renderer)
 	{
 		if (particle.active)
 		{
-			// set particle color and draw point at current position
-			renderer.SetColor(particle.color);
-			renderer.DrawPoint(particle.position.x, particle.position.y);
+			// draw particle texture at current position
+			renderer.DrawTexture(*particle.sprite, particle.position.x, particle.position.y);
 		}
 	}
 }

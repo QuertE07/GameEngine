@@ -20,11 +20,11 @@ namespace gl
 
     void Actor::Draw(const Renderer& renderer) const
     {
-        renderer.DrawModel(m_model, m_transform);
+        renderer.DrawTexture(*m_sprite.get(), m_transform.position.x, m_transform.position.y, m_transform.rotation, m_transform.scale);
     }
 
     float Actor::GetRadius() const
     {
-        return m_model.GetRadius() * m_transform.scale * 0.9f;
+        return (m_sprite->GetSize().x * 0.5 + m_sprite->GetSize().y * 0.5) * m_transform.scale * 0.45f;
     }
 }
