@@ -8,6 +8,7 @@
 #include "Vector3.h"
 #include "AnimatedModel.h"
 #include "Text.h"
+#include "Json.h"
 
 #include "Renderer.h"
 #include "Input.h"

@@ -54,7 +54,7 @@ void ParticleSystem::AddParticle(const Particle& particle)
 {
 	// get free particle
 	Particle* freeParticle = GetFreeParticle();
-	// check if free particle is not nullptr
+	// check if free particle is not nullptrf
 	if (freeParticle)
 	{
 		// set free particle object with particle

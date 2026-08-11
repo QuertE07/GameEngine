@@ -7,78 +7,140 @@
 #include <fmod.hpp>
 #include <map>
 #include <memory>
+#include <fstream>
 
 using namespace gl;
 
-class Object
-{
-public:
-    Object() { std::cout << "constructor\n"; }
-    ~Object() { std::cout << "destructor\n"; }
-
-    Object(const Object& object) { std::cout << "copy\n"; }
-    Object& operator = (const Object& object) { std::cout << "assignment\n"; return *this; }
-};
-
-uint32_t seed = 1234;
-
-uint32_t RNG()
-{
-    seed = (seed * 1103515245) + 12345;
-    return seed;
-}
-
 int main()
 {
-    //for (size_t i = 0; i < 10; i++) std::cout << RNG() << " ";
-    //std::cout << std::endl;
-    //
-    //for (size_t i = 0; i < 10; i++) std::cout << RNG() << " ";
-    //std::cout << std::endl;
-    //
-    ////srand((unsigned int)time(NULL));
-    //SeedRandom((unsigned int)time(NULL));
-    //for (size_t i = 0; i < 10; i++) std::cout << rand() << " ";
-    //std::cout << std::endl;
-
-    //return 0;
-
-    //std::cout << "====================-object-=====================\n";
-    //{
-
-    //    Object objectA;
-    //    Object objectB = objectA;
-    //    Object objectC;
-    //    objectC = objectA;
-    //}
-
-    //std::cout << "\n====================-raw pointers-=====================\n";
-    //{
-    //    Object* objectA = new Object;
-    //    std::cout << objectA << std::endl;
-    //    Object* objectB = new Object(*objectA);
-    //    std::cout << objectB << std::endl;
-    //    Object* objectC = nullptr;
-    //    objectC = objectA;
-    //    std::cout << objectC << std::endl;
-    //    
-    //    delete objectA;
-    //    delete objectB;
-    //}
-
-    //std::cout << "\n====================-smart pointers-=====================\n";
-    //{
-    //    std::unique_ptr<Object> objectA = std::make_unique<Object>();
-    //    std::cout << objectA.get() << std::endl;
-    //    std::unique_ptr<Object> objectB;
-    //    objectB = std::move(objectA);
-    //    std::cout << objectB.get() << std::endl;
-    //}
-
-    //return 0;
-
     SetWorkingDirectory("Assets");
     if (Engine::Get().Initialize() == false) return 0;
+
+    //{
+    //    std::ifstream file("data/text.txt");
+    //    if (file.is_open())
+    //    {
+    //        std::string str;
+    //        while (std::getline(file, str))
+    //        {
+    //            std::cout << str << std::endl;
+    //        }
+    //    }
+    //    else
+    //    {
+    //        std::cout << "Could not load file." << std::endl;
+    //    }
+    //    file.close();
+    //}
+
+    //{
+    //    std::ofstream file("data/text.txt", std::ios::app);
+    //    if (file.is_open())
+    //    {
+    //        file << "Have a good day.\n";
+    //    }
+    //    file.close();
+    //}
+
+    //{
+    //    std::fstream file("data/text.txt", std::ios::in | std::ios::out | std::ios::app);
+    //    if (file.is_open())
+    //    {
+    //        // input
+    //        file << "Add a line.\n";
+    //        file.seekg(0);
+    //        // output
+    //        std::string str;
+    //        while (std::getline(file, str))
+    //        {
+    //            std::cout << str << std::endl;
+    //        }
+    //    }
+    //    file.close();
+    //}
+
+    //{
+    //    std::string name;
+    //    int score;
+    //    bool isAlive;
+
+    //    bool save = false;
+    //    if (save)
+    //    {
+    //        name = "Luigi";
+    //        score = 4;
+    //        isAlive = true;
+
+    //        std::ofstream file("data/game.txt", std::ios::trunc);
+    //        if (file.is_open())
+    //        {
+    //            file << name << "\n";
+    //            file << score << "\n";
+    //            file << isAlive << "\n";
+    //        }
+    //    }
+
+    //    bool load = true;
+    //    if (load)
+    //    {
+    //        std::ifstream file("data/game.txt");
+    //        if (file.is_open())
+    //        {
+    //            std::getline(file, name);
+
+    //            std::string str;
+    //            std::getline(file, str);
+
+    //            score = std::stoi(str);
+
+    //            file >> isAlive;
+    //        }
+    //    }
+
+    //    std::cout << name << std::endl;
+    //    std::cout << score << std::endl;
+    //    std::cout << isAlive << std::endl;
+
+    //}
+
+    // load the json data from a file
+    std::string buffer;
+    if (ReadTextFile("data/data.json", buffer))
+    {
+        // show the contents of the json file (debug)
+        std::cout << buffer << std::endl;
+
+        // create json document from the json file contents
+        rapidjson::Document document;
+        if (json::Load("data/data.json", document))
+        {
+            // read/show the data from the json file
+            std::string name;
+            int age;
+            float speed;
+            bool isAwake;
+            Vector2 position;
+            Vector3 color;
+
+            // read the json data
+            json::Read(document, "name", name);
+            json::Read(document, "age", age);
+            json::Read(document, "speed", speed);
+            json::Read(document, "isAwake", isAwake);
+            json::Read(document, "position", position);
+            json::Read(document, "color", color);
+
+            // show the data
+            std::cout << name << " " << age << " " << speed << " " << isAwake << std::endl;
+            std::cout << position.x << " " << position.y << std::endl;
+            std::cout << color.r << " " << color.g << " " << color.b << " " << std::endl;
+        }
+    }
+
+    //Document document;
+    //document.Parse(json);
+
+    return 0;
 
     FlowerGame game;
     game.Initialize();
