@@ -5,6 +5,8 @@
 #include <rapidjson/document.h>
 #include <string>
 
+#define JSON_READ(value, data) gl::json::Read(value, #data, data)
+
 namespace gl::json
 {
 	bool Load(const std::string& filename, rapidjson::Document& document);

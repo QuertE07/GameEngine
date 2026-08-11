@@ -123,12 +123,12 @@ int main()
             Vector3 color;
 
             // read the json data
-            json::Read(document, "name", name);
-            json::Read(document, "age", age);
-            json::Read(document, "speed", speed);
-            json::Read(document, "isAwake", isAwake);
-            json::Read(document, "position", position);
-            json::Read(document, "color", color);
+            JSON_READ(document, name);
+            JSON_READ(document, age);
+            JSON_READ(document, speed);
+            JSON_READ(document, isAwake);
+            JSON_READ(document, position);
+            JSON_READ(document, color);
 
             // show the data
             std::cout << name << " " << age << " " << speed << " " << isAwake << std::endl;
