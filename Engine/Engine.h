@@ -9,6 +9,7 @@
 #include "AnimatedModel.h"
 #include "Text.h"
 #include "Json.h"
+#include "StringUtils.h"
 
 #include "Renderer.h"
 #include "Input.h"
@@ -17,6 +18,8 @@
 #include "ResourceManager.h"
 #include "Audio.h"
 #include "Texture.h"
+
+#include "Factory.h"
 
 #include "Actor.h"
 #include "Scene.h"

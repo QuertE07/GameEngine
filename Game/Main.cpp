@@ -14,7 +14,29 @@ using namespace gl;
 int main()
 {
     SetWorkingDirectory("Assets");
-    if (Engine::Get().Initialize() == false) return 0;
+    //if (Engine::Get().Initialize() == false) return 0;
+
+    //Factory::Instance().Register<Actor>("Actor");
+    //auto actor = Factory::Instance().Create<Actor>("Actor");
+    //actor->SetActive();
+
+    //Factory::Instance().Register<Object>("Object");
+    //auto object = Factory::Instance().Create("Object");
+
+    //Factory::Instance().Register<Player>("Player");
+    //auto player = Factory::Instance().Create<Player>("Player");
+
+    //json::document_t document;
+    //if (json::Load("data/scene.json", document))
+    //{
+    //    player->Read(document);
+    //    std::cout << player->GetName() << std::endl;
+    //    std::cout << player->GetTag() << std::endl;
+
+    //    std::cout << player->GetTransform().rotation << std::endl;
+    //}
+
+    //return 0;
 
     //{
     //    std::ifstream file("data/text.txt");
@@ -140,7 +162,7 @@ int main()
     //Document document;
     //document.Parse(json);
 
-    //return 0;
+    return 0;
 
     FlowerGame game;
     game.Initialize();

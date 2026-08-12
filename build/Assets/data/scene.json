@@ -1,0 +1,11 @@
+{
+  "name": "Celastrina",
+  "active": true,
+  "tag": "Instructor",
+  "transform": {
+    "position": [ 2.4, 5.6 ],
+    "rotation": 90,
+    "scale": 2
+  },
+  "speed": 200
+}
