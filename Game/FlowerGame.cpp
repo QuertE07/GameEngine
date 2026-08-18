@@ -14,9 +14,8 @@ bool FlowerGame::Initialize()
 
     m_scene = new Scene();
     m_scene->SetGame(this);
-
-    m_playerTexture = Resources().Get<Texture>("textures/Player.png", Engine::Get().GetRenderer());
-    m_flowerTexture = Resources().Get<Texture>("textures/Flower.png", Engine::Get().GetRenderer());
+    m_scene->Load("data/scene.json");
+    
     m_bgTexture = Resources().Get<Texture>("textures/Lawn.png", Engine::Get().GetRenderer());
 
     m_titleText = new Text(Resources().GetWithID<Font>("title_font", "fonts/Hyacinth.ttf", 120));
@@ -109,7 +108,7 @@ void FlowerGame::LifeLost()
 
     if (m_lives == 0)
     {
-        m_scene->GetActorByName<Player>("Player")->SetDestroyed();
+        m_scene->GetActorByName<Player>("PlayerPrototype")->SetDestroyed();
         m_gamestate = GameState::GameOver;
         m_stateTimer = 2.0f;
     }
@@ -117,28 +116,14 @@ void FlowerGame::LifeLost()
 
 void FlowerGame::SpawnPlayer()
 {
-    PlayerDesc playerDesc;
-    playerDesc.name = "Player";
-    playerDesc.tag = "Player";
-    playerDesc.transform = Transform{ Vector2{ 960.0f, 540.0f }, 0, 0.1 };
-    playerDesc.velocity = Vector2{ 0.0f, 0.0f };
-    playerDesc.sprite = m_playerTexture;
-    playerDesc.speed = 100.0f;
-
-    std::unique_ptr<Player> player = std::make_unique<Player>( playerDesc );
+    auto player = Factory::Instance().Create<Actor>("PlayerPrototype");
     m_scene->AddActor(std::move(player));
 }
 
 void FlowerGame::SpawnFlower(float decayRate)
 {
-    FlowerDesc flowerDesc;
-    flowerDesc.name = "Flower";
-    flowerDesc.tag = "Flower";
-    flowerDesc.transform = Transform{ Vector2{ RandomFloat(100.0f, 1820.0f), RandomFloat(100.0f, 980.0f) }, 0, 0.4};
-    flowerDesc.velocity = Vector2{ 0.0f, 0.0f };
-    flowerDesc.sprite = m_flowerTexture;
-    flowerDesc.decayRate = decayRate;
+    auto flower = Factory::Instance().Create<Actor>("FlowerPrototype");
+    flower->SetPosition({ RandomFloat(100.0f, 1820.0f), RandomFloat(100.0f, 980.0f) });
 
-    std::unique_ptr<Flower> flower = std::make_unique<Flower>( flowerDesc );
     m_scene->AddActor(std::move(flower));
 }

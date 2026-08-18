@@ -1,9 +1,11 @@
 #pragma once
 
 #include "Object.h"
+#include "Framework/Component.h"
 #include "Transform.h"
 #include "Texture.h"
 #include <string>
+#include<vector>
 
 namespace gl
 {
@@ -25,14 +27,17 @@ namespace gl
         Actor(const ActorDesc& actorDesc) :
             m_tag{ actorDesc.tag },
             m_transform{ actorDesc.transform },
-            m_velocity{ actorDesc.velocity },
-            m_sprite{ actorDesc.sprite }
+            m_velocity{ actorDesc.velocity }
         {}
 
-        Actor(const Transform& transform, const std::shared_ptr<Texture> sprite) : m_transform{ transform }, m_sprite{ sprite } {}
+        Actor(const Transform& transform, const std::shared_ptr<Texture> sprite) : m_transform{ transform } {}
+
+        CLASS_PROTOTYPE(Actor)
 
         virtual void Update(float dt);
         virtual void Draw(const class Renderer& renderer) const;
+
+        void AddComponent(std::unique_ptr<Component> component);
 
         virtual void OnCollision(Actor* other) {}
 
@@ -68,7 +73,8 @@ namespace gl
         float m_lifespan{ 0 };
         bool m_destroyed{ false };
 
-        std::shared_ptr<Texture> m_sprite;
+        std::vector<Component*> m_components;
+
         Scene* m_scene = nullptr;
     };
 }

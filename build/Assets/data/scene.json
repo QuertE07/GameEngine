@@ -1,11 +1,42 @@
 {
-  "name": "Celastrina",
-  "active": true,
-  "tag": "Instructor",
-  "transform": {
-    "position": [ 2.4, 5.6 ],
-    "rotation": 90,
-    "scale": 2
-  },
-  "speed": 200
+  "actors": [
+    {
+      "type": "Player",
+      "prototype": true,
+      "name": "PlayerPrototype",
+      "tag": "Player",
+      "active": true,
+      "transform": {
+        "position": [ 960, 540 ],
+        "rotation": 0,
+        "scale": 0.1
+      },
+      "speed": 100,
+      "components": [
+        {
+          "type": "SpriteRenderedComponent",
+          "texture": "textures/Player.png"
+        },
+        {
+          "type": "RigidBodyComponent",
+          "damping": 3.0
+        }
+      ]
+    },
+    {
+      "type": "Flower",
+      "prototype": true,
+      "name": "FlowerPrototype",
+      "tag": "Flower",
+      "active": true,
+      "lifespan":  10,
+      "transform": {
+        "position": [ 0, 0 ],
+        "rotation": 0,
+        "scale": 0.4
+      },
+      "texture": "textures/Flower.png",
+      "decay rate": 1
+    }
+  ]
 }

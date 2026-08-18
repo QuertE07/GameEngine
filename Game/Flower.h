@@ -20,9 +20,13 @@ public:
 	}
 	Flower(const gl::Transform& transform, const std::shared_ptr<gl::Texture> sprite) : Actor{ transform, sprite } {}
 
+	CLASS_PROTOTYPE(Flower)
+
 	void Update(float dt) override;
 
 	void OnCollision(Actor* other) override;
+
+	void Read(const gl::json::value_t& value) override;
 
 private:
 	float m_decayRate = 1.0f;

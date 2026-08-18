@@ -1,5 +1,6 @@
 #pragma once
 #include "Actor.h"
+#include "Json.h"
 
 struct PlayerDesc : public gl::ActorDesc
 {
@@ -16,8 +17,12 @@ public:
 	{}
 	Player(const gl::Transform& transform, const std::shared_ptr<gl::Texture> sprite) : Actor{ transform, sprite } {}
 
+	CLASS_PROTOTYPE(Player)
+
 	void Update(float dt) override;
 	void Draw(const class gl::Renderer& renderer) const;
+
+	void Read(const gl::json::value_t& value) override;
 
 private:
 	float m_speed = 100.0f;

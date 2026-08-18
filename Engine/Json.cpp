@@ -62,7 +62,7 @@ namespace gl::json
     bool Read(const value_t& value, const std::string& name, float& data, bool required)
     {
         // check if the value has the "<name>" and the correct data type
-        if (!value.HasMember(name.c_str()) || !value[name.c_str()].IsFloat())
+        if (!value.HasMember(name.c_str()) || !value[name.c_str()].IsNumber())
         {
             if (required) std::cerr << "Could not read JSON value (float):" << name << std::endl;
             return false;

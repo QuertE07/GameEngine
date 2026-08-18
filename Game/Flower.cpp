@@ -3,6 +3,8 @@
 #include "Engine.h"
 #include "FlowerGame.h"
 
+FACTORY_REGISTER(Flower)
+
 void Flower::Update(float dt)
 {
 	if (m_decaying)
@@ -67,4 +69,11 @@ void Flower::OnCollision(Actor* other)
 	{
 		m_decaying = false;
 	}
+}
+
+void Flower::Read(const gl::json::value_t& value)
+{
+	Actor::Read(value);
+
+	JSON_READ_NAME(value, "decay rate", m_decayRate);
 }

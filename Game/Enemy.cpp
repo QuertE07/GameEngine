@@ -5,7 +5,7 @@
 
 void Enemy::Update(float dt)
 {
-	Player* player = m_scene->GetActorByName<Player>("Player");
+	Player* player = m_scene->GetActorByName<Player>("PlayerPrototype");
 	if (player)
 	{
 		gl::Vector2 direction = player->GetTransform().position - m_transform.position;

@@ -1,6 +1,9 @@
 #include "Player.h"
 #include "Engine.h"
+
 #include <SDL3/SDL.h>
+
+FACTORY_REGISTER(Player)
 
 void Player::Update(float dt)
 {
@@ -31,4 +34,12 @@ void Player::Update(float dt)
 void Player::Draw(const class gl::Renderer& renderer) const
 {
 	Actor::Draw(renderer);
+}
+
+void Player::Read(const gl::json::value_t& value)
+{
+    Actor::Read(value);
+
+    
+    JSON_READ_NAME(value, "speed", m_speed);
 }
