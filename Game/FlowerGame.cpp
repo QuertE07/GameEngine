@@ -18,14 +18,14 @@ bool FlowerGame::Initialize()
     
     m_bgTexture = Resources().Get<Texture>("textures/Lawn.png", Engine::Get().GetRenderer());
 
-    m_titleText = new Text(Resources().GetWithID<Font>("title_font", "fonts/Hyacinth.ttf", 120));
+    m_titleText = new Text(Resources().GetWithID<Font>("title_font", "fonts/Hyacinth.ttf", 120.0f));
     m_titleText->Create(Engine::Get().GetRenderer(), "Butterfly Pollinator", Color{ 1.0f, 1.0f, 1.0f });
 
-    m_gameOverText = new Text(Resources().GetWithID<Font>("gameOver_font", "fonts/Hyacinth.ttf", 140));
+    m_gameOverText = new Text(Resources().GetWithID<Font>("gameOver_font", "fonts/Hyacinth.ttf", 140.0f));
     m_gameOverText->Create(Engine::Get().GetRenderer(), "Game Over", Color{ 1.0f, 0.4f, 0.6f });
 
-    m_scoreText = new Text(Resources().GetWithID<Font>("score_font", "fonts/Hyacinth.ttf", 60));
-    m_livesText = new Text(Resources().GetWithID<Font>("lives_font", "fonts/Hyacinth.ttf", 60));
+    m_scoreText = new Text(Resources().GetWithID<Font>("score_font", "fonts/Hyacinth.ttf", 60.0f));
+    m_livesText = new Text(Resources().GetWithID<Font>("lives_font", "fonts/Hyacinth.ttf", 60.0f));
 
     return false;
 }

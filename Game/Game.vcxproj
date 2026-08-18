@@ -98,8 +98,8 @@
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>$(CoreLibraryDependencies);%(AdditionalDependencies);sdl3_ttf.lib;sdl3_image.lib</AdditionalDependencies>
-      <AdditionalLibraryDirectories>$(SolutionDir)ThirdParty\SDL3\lib\$(PlatformTarget);</AdditionalLibraryDirectories>
+      <AdditionalDependencies>$(CoreLibraryDependencies);%(AdditionalDependencies);sdl3_ttf.lib;sdl3_image.lib;fmod_vc.lib;fmod_vc.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(SolutionDir)ThirdParty\SDL3\lib\$(PlatformTarget);;$(SolutionDir)ThirdParty\fmod\core\lib\$(PlatformTarget)</AdditionalLibraryDirectories>
       <AdditionalOptions>/WHOLEARCHIVE:Engine.lib %(AdditionalOptions)</AdditionalOptions>
     </Link>
     <Manifest>
@@ -120,8 +120,8 @@
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>$(CoreLibraryDependencies);%(AdditionalDependencies);sdl3_ttf.lib;sdl3_image.lib</AdditionalDependencies>
-      <AdditionalLibraryDirectories>$(SolutionDir)ThirdParty\SDL3\lib\$(PlatformTarget);</AdditionalLibraryDirectories>
+      <AdditionalDependencies>$(CoreLibraryDependencies);%(AdditionalDependencies);sdl3_ttf.lib;sdl3_image.lib;fmod_vc.lib;fmod_vc.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(SolutionDir)ThirdParty\SDL3\lib\$(PlatformTarget);;$(SolutionDir)ThirdParty\fmod\core\lib\$(PlatformTarget)</AdditionalLibraryDirectories>
       <AdditionalOptions>/WHOLEARCHIVE:Engine.lib %(AdditionalOptions)</AdditionalOptions>
     </Link>
     <Manifest>
@@ -140,8 +140,8 @@
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>$(SolutionDir)ThirdParty\SDL3\lib\$(PlatformTarget);$(SolutionDir)ThirdParty\SDL3\lib\x64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>SDL3.lib;%(AdditionalDependencies);sdl3_ttf.lib;sdl3_image.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(SolutionDir)ThirdParty\SDL3\lib\$(PlatformTarget);$(SolutionDir)ThirdParty\SDL3\lib\x64;%(AdditionalLibraryDirectories);$(SolutionDir)ThirdParty\fmod\core\lib\$(PlatformTarget)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>%(AdditionalDependencies);fmod_vc.lib</AdditionalDependencies>
       <AdditionalOptions>/WHOLEARCHIVE:Engine.lib %(AdditionalOptions)</AdditionalOptions>
     </Link>
     <Manifest>
@@ -162,8 +162,8 @@
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>$(CoreLibraryDependencies);%(AdditionalDependencies);sdl3_ttf.lib;sdl3_image.lib</AdditionalDependencies>
-      <AdditionalLibraryDirectories>$(SolutionDir)ThirdParty\SDL3\lib\$(PlatformTarget);</AdditionalLibraryDirectories>
+      <AdditionalDependencies>$(CoreLibraryDependencies);%(AdditionalDependencies);sdl3_ttf.lib;sdl3_image.lib;fmod_vc.lib;fmod_vc.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(SolutionDir)ThirdParty\SDL3\lib\$(PlatformTarget);;$(SolutionDir)ThirdParty\fmod\core\lib\$(PlatformTarget)</AdditionalLibraryDirectories>
       <AdditionalOptions>/WHOLEARCHIVE:Engine.lib %(AdditionalOptions)</AdditionalOptions>
     </Link>
     <Manifest>

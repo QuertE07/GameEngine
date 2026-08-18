@@ -32,17 +32,18 @@ namespace gl
 
         Actor(const Transform& transform, const std::shared_ptr<Texture> sprite) : m_transform{ transform } {}
 
+        Actor(const Actor& other);
+
         CLASS_PROTOTYPE(Actor)
 
         virtual void Update(float dt);
         virtual void Draw(const class Renderer& renderer) const;
 
-        void AddComponent(std::unique_ptr<Component> component);
-
         virtual void OnCollision(Actor* other) {}
 
         const Transform& GetTransform() const { return m_transform; }
-        void SetPosition(Vector2 position) { m_transform.position = position; }
+        void SetTransform(const Transform& transform) { m_transform = transform; }
+        void SetPosition(const Vector2& position) { m_transform.position = position; }
         void SetRotation(float rotation) { m_transform.rotation = rotation; }
         void SetScale(float scale) { m_transform.scale = scale; }
 
@@ -51,16 +52,23 @@ namespace gl
         void AddVelocity(const Vector2& velocity) { m_velocity += velocity; }
 
         const std::string& GetName() const { return m_name; }
+
         const std::string& GetTag() const { return m_tag; }
+        void SetTag(const std::string& tag) { m_tag = tag; }
 
         Scene* GetScene() { return m_scene; }
 
         float GetRadius() const;
 
-        void Read(const json::value_t& value);
-
         void SetDestroyed(bool destroy = true) { m_destroyed = destroy; }
         bool GetDestroyed() const { return m_destroyed; }
+
+        void Read(const json::value_t& value);
+
+        void AddComponent(std::unique_ptr<Component> component);
+
+        template<std::derived_from<Component> T>
+        T* GetComponent();
 
         friend Scene;
 
@@ -73,8 +81,20 @@ namespace gl
         float m_lifespan{ 0 };
         bool m_destroyed{ false };
 
-        std::vector<Component*> m_components;
+        std::vector<std::unique_ptr<Component>> m_components;
 
         Scene* m_scene = nullptr;
     };
+
+    template<std::derived_from<Component> T>
+    inline T* Actor::GetComponent()
+    {
+        for (auto& component : m_components)
+        {
+            auto result = dynamic_cast<T*>(component.get());
+            if (result) return result;
+        }
+
+        return nullptr;
+    }
 }

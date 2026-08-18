@@ -29,14 +29,19 @@
       "name": "FlowerPrototype",
       "tag": "Flower",
       "active": true,
-      "lifespan":  10,
+      "lifespan": 10,
       "transform": {
         "position": [ 0, 0 ],
         "rotation": 0,
         "scale": 0.4
       },
-      "texture": "textures/Flower.png",
-      "decay rate": 1
+      "decay rate": 1,
+      "components": [
+        {
+          "type": "SpriteRenderedComponent",
+          "texture": "textures/Flower.png"
+        }
+      ]
     }
   ]
 }

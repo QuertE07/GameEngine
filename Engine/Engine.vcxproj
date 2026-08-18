@@ -107,8 +107,7 @@
     </Manifest>
     <Lib>
       <AdditionalLibraryDirectories>$(SolutionDir)ThirdParty\fmod\core\lib\$(PlatformTarget);$(SolutionDir)ThirdParty\SDL3\lib\$(PlatformTarget);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>fmod_vc.lib;sdl3_image.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalOptions>/WHOLEARCHIVE %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalDependencies>sdl3.lib;sdl3_image.lib;sdl3_ttf.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Lib>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -134,8 +133,7 @@
     </Manifest>
     <Lib>
       <AdditionalLibraryDirectories>$(SolutionDir)ThirdParty\fmod\core\lib\$(PlatformTarget);$(SolutionDir)ThirdParty\SDL3\lib\$(PlatformTarget);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>fmod_vc.lib;sdl3_image.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalOptions>/WHOLEARCHIVE %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalDependencies>sdl3.lib;sdl3_image.lib;sdl3_ttf.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Lib>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -159,8 +157,7 @@
     </Manifest>
     <Lib>
       <AdditionalLibraryDirectories>$(SolutionDir)ThirdParty\fmod\core\lib\$(PlatformTarget);$(SolutionDir)ThirdParty\SDL3\lib\$(PlatformTarget);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>fmod_vc.lib;sdl3_image.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalOptions>/WHOLEARCHIVE %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalDependencies>sdl3.lib;sdl3_image.lib;sdl3_ttf.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Lib>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -186,14 +183,15 @@
     </Manifest>
     <Lib>
       <AdditionalLibraryDirectories>$(SolutionDir)ThirdParty\fmod\core\lib\$(PlatformTarget);$(SolutionDir)ThirdParty\SDL3\lib\$(PlatformTarget);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>fmod_vc.lib;sdl3_image.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalOptions>/WHOLEARCHIVE %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalDependencies>sdl3.lib;sdl3_image.lib;sdl3_ttf.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Lib>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="Actor.h" />
     <ClInclude Include="AnimatedModel.h" />
     <ClInclude Include="Audio.h" />
+    <ClInclude Include="Components\CircleColliderComponent.h" />
+    <ClInclude Include="Components\ColliderComponent.h" />
     <ClInclude Include="Components\RendererComponent.h" />
     <ClInclude Include="Components\SpriteRendererComponent.h" />
     <ClInclude Include="EngineTime.h" />
@@ -229,6 +227,7 @@
     <ClCompile Include="Actor.cpp" />
     <ClCompile Include="AnimatedModel.cpp" />
     <ClCompile Include="Audio.cpp" />
+    <ClCompile Include="Components\CircleColliderComponent.cpp" />
     <ClCompile Include="Components\SpriteRendererComponent.cpp" />
     <ClCompile Include="Engine.cpp" />
     <ClCompile Include="EngineTime.cpp" />
