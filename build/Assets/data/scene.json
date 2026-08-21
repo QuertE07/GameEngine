@@ -14,12 +14,12 @@
       "speed": 100,
       "components": [
         {
-          "type": "SpriteRenderedComponent",
+          "type": "SpriteRendererComponent",
           "texture": "textures/Player.png"
         },
         {
           "type": "CircleColliderComponent",
-          "radius": 20.0
+          "radius": 50.0
         }
       ]
     },
@@ -38,12 +38,12 @@
       "decay rate": 1,
       "components": [
         {
-          "type": "SpriteRenderedComponent",
+          "type": "SpriteRendererComponent",
           "texture": "textures/Flower.png"
         },
         {
           "type": "CircleColliderComponent",
-          "radius": 20.0
+          "radius": 100.0
         }
       ]
     }

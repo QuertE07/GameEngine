@@ -10,7 +10,7 @@ namespace gl
 	{
 		if (m_texture)
 		renderer.DrawTexture(*m_texture.get(),
-			GetOwner()->GetTransform().position.y,
+			GetOwner()->GetTransform().position.x,
 			GetOwner()->GetTransform().position.y,
 			GetOwner()->GetTransform().rotation,
 			GetOwner()->GetTransform().scale);

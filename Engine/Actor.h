@@ -58,12 +58,10 @@ namespace gl
 
         Scene* GetScene() { return m_scene; }
 
-        float GetRadius() const;
-
         void SetDestroyed(bool destroy = true) { m_destroyed = destroy; }
         bool GetDestroyed() const { return m_destroyed; }
 
-        void Read(const json::value_t& value);
+        virtual void Read(const json::value_t& value);
 
         void AddComponent(std::unique_ptr<Component> component);
 

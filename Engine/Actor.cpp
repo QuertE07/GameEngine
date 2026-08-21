@@ -52,12 +52,6 @@ namespace gl
         m_components.push_back(std::move(component));
     }
 
-    float Actor::GetRadius() const
-    {
-        //return (m_sprite->GetSize().x * 0.5 + m_sprite->GetSize().y * 0.5) * m_transform.scale * 0.45f;
-        return 0.0f;
-    }
-
     void Actor::Read(const json::value_t& value)
     {
         Object::Read(value);
@@ -80,7 +74,10 @@ namespace gl
                 JSON_READ_NAME(componentValue, "type", typeName);
 
                 auto component = Factory::Instance().Create<Component>(typeName);
-                if (component) component->Read(componentValue);
+                if (component) {
+                    component->Read(componentValue);
+                    AddComponent(std::move(component));
+                }
             }
         }
     }

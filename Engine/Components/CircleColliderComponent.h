@@ -7,6 +7,8 @@ namespace gl
 	class CircleColliderComponent : public ColliderComponent
 	{
 	public:
+		CLASS_PROTOTYPE(CircleColliderComponent)
+
 		bool CheckCollision(const ColliderComponent& other) override;
 
 		void Read(const json::value_t& value) override;
