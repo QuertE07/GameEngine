@@ -18,8 +18,8 @@
           "texture": "textures/Player.png"
         },
         {
-          "type": "RigidBodyComponent",
-          "damping": 3.0
+          "type": "CircleColliderComponent",
+          "radius": 20.0
         }
       ]
     },
@@ -40,6 +40,10 @@
         {
           "type": "SpriteRenderedComponent",
           "texture": "textures/Flower.png"
+        },
+        {
+          "type": "CircleColliderComponent",
+          "radius": 20.0
         }
       ]
     }
