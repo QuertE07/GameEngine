@@ -18,6 +18,7 @@
 #include "ResourceManager.h"
 #include "Audio.h"
 #include "Texture.h"
+#include "Physics/Physics.h"
 
 #include "Factory.h"
 
@@ -46,6 +47,7 @@ namespace gl
 		Time& GetTime() { return m_time; }
 		ParticleSystem& GetPS() { return m_particleSystem; }
 		Audio& GetAudio() { return m_audio; }
+		Physics& GetPhysics() { return m_physics; }
 
 	private:
 		Engine() = default;
@@ -57,5 +59,7 @@ namespace gl
 
 		ParticleSystem m_particleSystem;
 		Audio m_audio;
+
+		Physics m_physics;
 	};
 }
