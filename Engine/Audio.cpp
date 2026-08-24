@@ -1,9 +1,6 @@
 #include "pch.h"
 #include "Audio.h"
 
-#include <iostream>
-#include <fmod_errors.h>
-
 using namespace gl;
 
 bool Audio::Initialize()

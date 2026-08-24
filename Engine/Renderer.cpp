@@ -5,8 +5,6 @@
 #include "MathUtils.h"
 #include "Texture.h"
 
-#include <iostream>
-
 bool gl::Renderer::Initialize(const char* name, int width, int height)
 {
     SDL_Init(SDL_INIT_VIDEO);

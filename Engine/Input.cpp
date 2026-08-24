@@ -1,8 +1,6 @@
 #include "pch.h"
 #include "Input.h"
 
-#include <SDL3/SDL.h>
-
 namespace gl
 {
 	bool Input::Initialize()

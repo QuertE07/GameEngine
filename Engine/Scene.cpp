@@ -4,8 +4,6 @@
 #include "Factory.h"
 #include "Components/ColliderComponent.h"
 
-#include <ranges>
-
 namespace gl
 {
 	void Scene::AddActor(std::unique_ptr<Actor> actor)

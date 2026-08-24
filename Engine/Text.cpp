@@ -2,8 +2,6 @@
 #include "Text.h"
 #include "Renderer.h"
 
-#include <iostream>
-
 namespace gl
 {
 	Text::~Text() {

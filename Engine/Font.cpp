@@ -1,8 +1,6 @@
 #include "pch.h"
 #include "Font.h"
 
-#include <iostream>
-
 namespace gl
 {
 	Font::~Font() {
