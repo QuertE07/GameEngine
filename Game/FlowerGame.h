@@ -1,8 +1,8 @@
 #pragma once
-#include "Game.h"
-#include "Text.h"
-#include "Texture.h"
-#include "Resource.h"
+#include "Framework/Game.h"
+#include "Renderer/Text.h"
+#include "Renderer/Texture.h"
+#include "Resources/Resource.h"
 
 class FlowerGame : public gl::Game
 {

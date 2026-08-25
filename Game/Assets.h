@@ -1,5 +1,5 @@
 #pragma once
-#include "AnimatedModel.h"
+#include "Renderer/AnimatedModel.h"
 
 namespace Assets
 {

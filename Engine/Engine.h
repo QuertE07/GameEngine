@@ -1,30 +1,38 @@
 #pragma once
 
-#include "File.h"
-#include "MathUtils.h"
-#include "Random.h"
-#include "Transform.h"
-#include "Vector2.h"
-#include "Vector3.h"
-#include "AnimatedModel.h"
-#include "Text.h"
-#include "Json.h"
-#include "StringUtils.h"
+#include "Core/EngineTime.h"
+#include "Core/Factory.h"
+#include "Core/File.h"
+#include "Core/Random.h"
+#include "Core/Singleton.h"
+#include "Core/StringUtils.h"
 
-#include "Renderer.h"
-#include "Input.h"
-#include "EngineTime.h"
-#include "ParticleSystem.h"
-#include "ResourceManager.h"
-#include "Audio.h"
-#include "Texture.h"
+#include "Renderer/AnimatedModel.h"
+#include "Renderer/Font.h"
+#include "Renderer/Mesh.h"
+#include "Renderer/Model.h"
+#include "Renderer/ParticleSystem.h"
+#include "Renderer/Renderer.h"
+#include "Renderer/Text.h"
+#include "Renderer/Texture.h"
+#include "Renderer/TextureFrames.h"
+
+#include "Math/MathUtils.h"
+#include "Math/Transform.h"
+#include "Math/Vector2.h"
+#include "Math/Vector3.h"
+#include "Math/Rect.h"
+
+#include "Framework/Actor.h"
+#include "Framework/Scene.h"
+#include "Framework/Game.h"
+
+#include "Resources/ResourceManager.h"
+
+#include "Serialization/Json.h"
+#include "Input/Input.h"
 #include "Physics/Physics.h"
-
-#include "Factory.h"
-
-#include "Actor.h"
-#include "Scene.h"
-#include "Game.h"
+#include "Audio/Audio.h"
 
 #include <iostream>
 #include <vector>

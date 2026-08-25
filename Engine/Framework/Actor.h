@@ -2,10 +2,10 @@
 
 #include "Object.h"
 #include "Framework/Component.h"
-#include "Transform.h"
-#include "Texture.h"
+#include "Math/Transform.h"
+#include "Renderer/Texture.h"
 #include <string>
-#include<vector>
+#include <vector>
 
 namespace gl
 {

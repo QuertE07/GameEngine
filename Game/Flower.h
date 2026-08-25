@@ -1,7 +1,6 @@
 #pragma once
-#include "Actor.h"
-
-#include "Texture.h"
+#include "Framework/Actor.h"
+#include "Renderer/Texture.h"
 
 struct FlowerDesc : public gl::ActorDesc
 {

@@ -20,6 +20,7 @@
 #include <fstream>
 #include <memory>
 #include <algorithm>
+#include <ranges>
 
 // Third-Party Includes
 #include <SDL3/SDL.h>

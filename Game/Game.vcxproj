@@ -191,6 +191,7 @@
     <ClInclude Include="Player.h" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="..\build\Assets\animations\coin_spin.json" />
     <None Include="..\build\Assets\data\scene.json" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

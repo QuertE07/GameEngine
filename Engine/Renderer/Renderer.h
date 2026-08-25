@@ -1,5 +1,5 @@
 #pragma once
-#include "Vector3.h"
+#include "Math/Vector3.h"
 #include <SDL3/SDL.h>
 #include <SDL3_ttf/SDL_ttf.h>
 #include <SDL3_image/SDL_image.h>
@@ -27,6 +27,7 @@ namespace gl
 		void DrawModel(const class Model& model, const struct Transform& transform) const;
 		void DrawDebugText(float x, float y, const char* text) const;
 		void DrawTexture(class Texture& texture, float x, float y, float angle = 0.0f, float scale = 1.0f, bool flipH = false) const;
+		void DrawTexture(class Texture& texture, const struct Rect& source, float x, float y, float angle = 0.0f, float scale = 1.0f, bool flipH = false) const;
 
 		int GetWidth() const { return m_width; }
 		int GetHeight() const { return m_height; }

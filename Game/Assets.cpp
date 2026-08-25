@@ -46,7 +46,7 @@ namespace Assets
             Vector2{ -4, -8 },
             Vector2{ -5, -7 },
             Vector2{ -5, 0 },
-            Vector2{ -4.5, 1 },
+            Vector2{ -4.5, 1.0f },
             Vector2{ -5, 2 },
             Vector2{ -4, 7 },
             Vector2{ -3, 8 },
@@ -59,7 +59,7 @@ namespace Assets
     {
         { Vector2{ 2, -1 }, Vector2{ 3, -4 }, Vector2{ 6, -7 }, Vector2{ 9, -8 }, Vector2{ 10, -7 }, Vector2{ 10, 0 },
                    Vector2{ 9, 1 }, Vector2{ 10, 2 }, Vector2{ 8, 7 }, Vector2{ 7, 8 }, Vector2{6, 8}, Vector2{ 2, 3 } }, Color{0.7f, 0.6f, 1.0f} };
-    Mesh rWing2{ { Vector2{ 2, -1 }, Vector2{ 4, -8 }, Vector2{ 5, -7 }, Vector2{ 5, 0 }, Vector2{ 4.5, 1 }, Vector2{ 5, 2 }, Vector2{ 4, 7 }, Vector2{ 3, 8 }, Vector2{ 2, 3 } }, Color{0.7f, 0.6f, 1.0f} };
+    Mesh rWing2{ { Vector2{ 2, -1 }, Vector2{ 4, -8 }, Vector2{ 5, -7 }, Vector2{ 5, 0 }, Vector2{ 4.5, 1.0f }, Vector2{ 5, 2 }, Vector2{ 4, 7 }, Vector2{ 3, 8 }, Vector2{ 2, 3 } }, Color{0.7f, 0.6f, 1.0f} };
 
     Model frame1{ {body, lWing1, rWing1} };
     Model frame2{ {body, lWing2, rWing2} };

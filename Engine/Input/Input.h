@@ -1,6 +1,5 @@
 #pragma once
-#include "Vector2.h"
-#include <vector>
+#include "Math/Vector2.h"
 
 namespace gl
 {

@@ -1,6 +1,25 @@
 {
   "actors": [
     {
+      "type": "Actor",
+      "prototype": false,
+      "name": "Coin",
+      "tag": "coin",
+      "transform": {
+        "position": [ 80, 80 ],
+        "rotation": 0,
+        "scale": 1
+      },
+      "components": [
+        {
+          "type": "SpriteAnimationRendererComponent",
+          "texture_frames": "animations/coin_spin.json",
+          "fps": 10,
+          "loop": true
+        }
+      ]
+    },
+    {
       "type": "Player",
       "prototype": true,
       "name": "PlayerPrototype",
