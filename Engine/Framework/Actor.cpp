@@ -11,7 +11,6 @@ namespace gl
         Object{ other },
         m_tag{ other.m_tag },
         m_transform{ other.m_transform },
-        m_damping{ other.m_damping },
         m_lifespan{ other.m_lifespan }
     {
         for (auto& component : other.m_components)
@@ -33,8 +32,8 @@ namespace gl
             component->Update(dt);
         }
 
-        m_transform.position += (m_velocity * dt);
-        m_velocity *= 0.9f;
+        //m_transform.position += (m_velocity * dt);
+        //m_velocity *= 0.9f;
     }
 
     void Actor::Draw(const Renderer& renderer) const
@@ -43,6 +42,22 @@ namespace gl
         {
             auto rendererComponent = dynamic_cast<RendererComponent*>(component.get());
             if (rendererComponent) rendererComponent->Draw(renderer);
+        }
+    }
+
+    void Actor::Start()
+    {
+        for (auto& component : m_components)
+        {
+            component->Start();
+        }
+    }
+
+    void Actor::OnDestroy()
+    {
+        for (auto& component : m_components)
+        {
+            component->OnDestroy();
         }
     }
 
@@ -63,8 +78,6 @@ namespace gl
 
         JSON_READ_NAME(value, "tag", m_tag);
         JSON_READ_NAME(value, "lifespan", m_lifespan);
-        JSON_READ_NAME(value, "velocity", m_velocity);
-        JSON_READ_NAME(value, "damping", m_damping);
 
         if (JSON_HAS_NAME(value, "components"))
         {

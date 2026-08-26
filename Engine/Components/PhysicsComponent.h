@@ -17,6 +17,9 @@ namespace gl
 		virtual void SetPosition(const Vector2& position) = 0;
 		virtual Vector2 GetPosition() const = 0;
 
+		virtual void SetRotation(const float rotation) = 0;
+		virtual float GetRotation() const = 0;
+
 		virtual void Read(const json::value_t& value);
 
 	protected:

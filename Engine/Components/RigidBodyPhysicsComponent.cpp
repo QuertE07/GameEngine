@@ -67,6 +67,16 @@ namespace gl
 		return GetOwner()->GetTransform().position;
 	}
 
+	void RigidBodyPhysicsComponent::SetRotation(const float rotation)
+	{
+		GetOwner()->SetRotation(rotation);
+	}
+
+	float RigidBodyPhysicsComponent::GetRotation() const
+	{
+		return GetOwner()->GetTransform().rotation;
+	}
+
 	void RigidBodyPhysicsComponent::Read(const json::value_t& value)
 	{
 		PhysicsComponent::Read(value);

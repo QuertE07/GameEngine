@@ -14,7 +14,7 @@ void Enemy::Update(float dt)
 
 		gl::Vector2 forward{ 1, 0 };
 		forward = forward.Rotate(m_transform.rotation * gl::DegToRad);
-		AddVelocity(forward * m_speed * dt);
+		//AddVelocity(forward * m_speed * dt);
 	}
 
 	float thrust = 0.0f;
@@ -22,7 +22,7 @@ void Enemy::Update(float dt)
 
 	gl::Vector2 forward{ 1, 0 };
 	gl::Vector2 velocity = forward.Rotate(m_transform.rotation * gl::DegToRad) * thrust;
-	AddVelocity(velocity * dt);
+	//AddVelocity(velocity * dt);
 
 	Actor::Update(dt);
 }

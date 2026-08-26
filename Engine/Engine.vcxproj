@@ -188,6 +188,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="Audio\Audio.h" />
+    <ClInclude Include="Components\Box2DPhysicsComponent.h" />
     <ClInclude Include="Components\CircleColliderComponent.h" />
     <ClInclude Include="Components\ColliderComponent.h" />
     <ClInclude Include="Components\PhysicsComponent.h" />
@@ -215,6 +216,7 @@
     <ClInclude Include="Math\Vector2.h" />
     <ClInclude Include="Math\Vector3.h" />
     <ClInclude Include="Physics\Physics.h" />
+    <ClInclude Include="Physics\PhysicsBody.h" />
     <ClInclude Include="Renderer\AnimatedModel.h" />
     <ClInclude Include="Renderer\Font.h" />
     <ClInclude Include="Renderer\Mesh.h" />
@@ -231,6 +233,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Audio\Audio.cpp" />
+    <ClCompile Include="Components\Box2DPhysicsComponent.cpp" />
     <ClCompile Include="Components\CircleColliderComponent.cpp" />
     <ClCompile Include="Components\PhysicsComponent.cpp" />
     <ClCompile Include="Components\RigidBodyPhysicsComponent.cpp" />
@@ -250,6 +253,7 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="Physics\Physics.cpp" />
+    <ClCompile Include="Physics\PhysicsBody.cpp" />
     <ClCompile Include="Renderer\AnimatedModel.cpp" />
     <ClCompile Include="Renderer\Font.cpp" />
     <ClCompile Include="Renderer\Mesh.cpp" />

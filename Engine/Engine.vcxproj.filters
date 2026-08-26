@@ -150,6 +150,12 @@
     <ClInclude Include="Components\PhysicsComponent.h">
       <Filter>Components</Filter>
     </ClInclude>
+    <ClInclude Include="Physics\PhysicsBody.h">
+      <Filter>Physics</Filter>
+    </ClInclude>
+    <ClInclude Include="Components\Box2DPhysicsComponent.h">
+      <Filter>Components</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Components\SpriteRendererComponent.cpp">
@@ -221,6 +227,12 @@
       <Filter>Renderer</Filter>
     </ClCompile>
     <ClCompile Include="Components\PhysicsComponent.cpp">
+      <Filter>Components</Filter>
+    </ClCompile>
+    <ClCompile Include="Physics\PhysicsBody.cpp">
+      <Filter>Physics</Filter>
+    </ClCompile>
+    <ClCompile Include="Components\Box2DPhysicsComponent.cpp">
       <Filter>Components</Filter>
     </ClCompile>
   </ItemGroup>

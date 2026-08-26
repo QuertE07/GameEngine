@@ -13,7 +13,8 @@ namespace gl
 		virtual ~Component() = default;
 
 		virtual void Start() {}
-		virtual void Destroyed() {}
+		virtual void OnDestroy() {}
+
 		virtual void Update(float dt) {}
 
 		Actor* GetOwner() const { return m_owner; }
