@@ -18,6 +18,7 @@ namespace gl
         Transform transform {};
         Vector2 velocity = { 0.0f, 0.0f };
         float lifespan = 0.0f;
+        bool persistent = false;
         std::shared_ptr<Texture> sprite;
     };
 
@@ -28,7 +29,8 @@ namespace gl
         Actor(const ActorDesc& actorDesc) :
             m_tag{ actorDesc.tag },
             m_transform{ actorDesc.transform },
-            m_lifespan{ actorDesc.lifespan }
+            m_lifespan{ actorDesc.lifespan },
+            m_persistent{ actorDesc.persistent }
         {}
 
         Actor(const Transform& transform, const std::shared_ptr<Texture> sprite) : m_transform{ transform } {}
@@ -61,6 +63,8 @@ namespace gl
         void SetDestroyed(bool destroy = true) { m_destroyed = destroy; }
         bool GetDestroyed() const { return m_destroyed; }
 
+        bool GetPersistent() const { return m_persistent; }
+
         virtual void Read(const json::value_t& value);
 
         void AddComponent(std::unique_ptr<Component> component);
@@ -76,6 +80,7 @@ namespace gl
         Transform m_transform;
         float m_lifespan{ 0 };
         bool m_destroyed{ false };
+        bool m_persistent = 0;
 
         std::vector<std::unique_ptr<Component>> m_components;
 

@@ -12,7 +12,7 @@ void Player::Update(float dt)
                           (float)gl::Engine::Get().GetInput().GetKeyDown(SDL_SCANCODE_DOWN) - gl::Engine::Get().GetInput().GetKeyDown(SDL_SCANCODE_UP)};
 
     float thrust = inputDir.y * m_speed;
-    float rotate = inputDir.x * 400;
+    float rotate = inputDir.x * 2;
 
     auto physicsComponent = GetComponent<gl::PhysicsComponent>();
     if (physicsComponent)

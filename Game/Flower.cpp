@@ -14,7 +14,7 @@ void Flower::Update(float dt)
 		{
 			gl::Particle particle;
 			particle.position = m_transform.position;
-			particle.sprite = gl::Resources().Get<gl::Texture>("textures/Evill.png", gl::Engine::Get().GetRenderer());
+			particle.sprite = gl::Resources().Get<gl::Texture>("textures/Brokenheart.png", gl::Engine::Get().GetRenderer());
 			particle.lifespan = gl::RandomFloat(0.5f, 1.5f);
 			particle.velocity = { gl::RandomFloat(-100.0f, 100.0f), gl::RandomFloat(-100.0f, 100.0f) };
 
@@ -29,7 +29,7 @@ void Flower::Update(float dt)
 		{
 			gl::Particle particle;
 			particle.position = m_transform.position;
-			particle.sprite = gl::Resources().Get<gl::Texture>("textures/Sparklyy.png", gl::Engine::Get().GetRenderer());
+			particle.sprite = gl::Resources().Get<gl::Texture>("textures/Heart.png", gl::Engine::Get().GetRenderer());
 			particle.lifespan = gl::RandomFloat(0.5f, 1.5f);
 			particle.velocity = { gl::RandomFloat(-100.0f, 100.0f), gl::RandomFloat(-100.0f, 100.0f) };
 
@@ -54,7 +54,7 @@ void Flower::Update(float dt)
 		{
 			gl::Particle particle;
 			particle.position = m_transform.position;
-			particle.sprite = gl::Resources().Get<gl::Texture>("textures/Evill.png", gl::Engine::Get().GetRenderer());
+			particle.sprite = gl::Resources().Get<gl::Texture>("textures/Brokenheart.png", gl::Engine::Get().GetRenderer());
 			particle.lifespan = gl::RandomFloat(0.5f, 1.5f);
 			particle.velocity = { gl::RandomFloat(-300.0f, 300.0f), gl::RandomFloat(-300.0f, 300.0f) };
 

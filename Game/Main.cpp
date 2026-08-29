@@ -23,8 +23,8 @@ int main()
 
     // SFX init
     Engine::Get().GetAudio().AddSound("bgm", "audio/bgm.mp3");
-    Engine::Get().GetAudio().AddSound("CompleteCharge", "audio/sparkle.mp3");
-    Engine::Get().GetAudio().AddSound("FlowerWilt", "audio/wilt.mp3");
+    Engine::Get().GetAudio().AddSound("CompleteCharge", "audio/ELPELT.mp3");
+    Engine::Get().GetAudio().AddSound("FlowerWilt", "audio/COUNTER.mp3");
 
     bool quit = false;
 

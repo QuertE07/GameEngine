@@ -15,6 +15,8 @@ namespace gl
 
 		void Update(float dt);
 
+		void ProcessCollisionEvents();
+
 		static b2Vec2 ToB2(const Vector2& v) { return b2Vec2{ v.x, v.y }; }
 		static Vector2 ToVector2(const b2Vec2& v) { return Vector2{ v.x, v.y }; }
 
