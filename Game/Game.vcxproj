@@ -171,12 +171,13 @@
     </Manifest>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Assets.cpp" />
-    <ClCompile Include="Enemy.cpp" />
-    <ClCompile Include="Flower.cpp" />
-    <ClCompile Include="FlowerGame.cpp" />
+    <ClCompile Include="FlowerGame\Assets.cpp" />
+    <ClCompile Include="FlowerGame\Flower.cpp" />
+    <ClCompile Include="FlowerGame\FlowerGame.cpp" />
+    <ClCompile Include="FlowerGame\Player.cpp" />
     <ClCompile Include="Main.cpp" />
-    <ClCompile Include="Player.cpp" />
+    <ClCompile Include="Other\Enemy.cpp" />
+    <ClCompile Include="SpriteGame\SpriteGame.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Engine\Engine.vcxproj">
@@ -184,16 +185,17 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Assets.h" />
-    <ClInclude Include="Enemy.h" />
-    <ClInclude Include="Flower.h" />
-    <ClInclude Include="FlowerGame.h" />
-    <ClInclude Include="Player.h" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="..\build\Assets\animations\coin_spin.json" />
     <None Include="..\build\Assets\data\scene.json" />
     <None Include="..\build\Assets\tilemap\world.json" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="FlowerGame\Assets.h" />
+    <ClInclude Include="FlowerGame\Flower.h" />
+    <ClInclude Include="FlowerGame\FlowerGame.h" />
+    <ClInclude Include="FlowerGame\Player.h" />
+    <ClInclude Include="Other\Enemy.h" />
+    <ClInclude Include="SpriteGame\SpriteGame.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -17,7 +17,6 @@ public:
 
 public:
 	FlowerGame() = default;
-	FlowerGame(gl::Scene* scene) : Game{ scene } {}
 
 	bool Initialize() override;
 

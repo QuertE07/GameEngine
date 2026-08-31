@@ -12,7 +12,9 @@ bool FlowerGame::Initialize()
 {
     Game::Initialize();
 
-    m_scene = new Scene();
+    SetWorkingDirectory("FlowerGame");
+
+    m_scene = std::make_unique<Scene>();
     m_scene->SetGame(this);
     m_scene->Load("data/scene.json");
     

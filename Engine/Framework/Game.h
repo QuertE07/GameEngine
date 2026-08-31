@@ -1,5 +1,7 @@
 #pragma once
 
+#include <memory>
+
 namespace gl
 {
 	class Scene;
@@ -7,8 +9,8 @@ namespace gl
 	class Game
 	{
 	public:
-		Game() = default;
-		Game(Scene* scene) : m_scene{ scene } {}
+		Game();
+		~Game();
 
 		virtual bool Initialize() { return true; }
 		virtual void Shutdown() {}
@@ -16,9 +18,9 @@ namespace gl
 		virtual void Update(float dt);
 		virtual void Draw(class Renderer& renderer);
 
-		void SetScene(Scene* scene) { m_scene = scene; }
+		void SetScene(std::unique_ptr<Scene> scene) { m_scene = std::move(scene); }
 
 	protected:
-		Scene* m_scene = nullptr;
+		std::unique_ptr<Scene> m_scene;
 	};
 }

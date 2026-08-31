@@ -21,43 +21,36 @@
     <Filter Include="Assets\Tilemaps">
       <UniqueIdentifier>{ee02f4f7-b5f0-40d4-ab6e-34fc361fa258}</UniqueIdentifier>
     </Filter>
+    <Filter Include="FlowerGame">
+      <UniqueIdentifier>{02f5f3f1-b5e6-46ae-bb27-40a1bb30e3f0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Other">
+      <UniqueIdentifier>{56ea39b4-9a8e-4600-a042-ab7e7c6371cc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="SpriteGame">
+      <UniqueIdentifier>{d49d9ccf-4db2-4bb4-a920-cf76d290472f}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Main.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="Main.cpp" />
+    <ClCompile Include="FlowerGame\Assets.cpp">
+      <Filter>FlowerGame</Filter>
     </ClCompile>
-    <ClCompile Include="Player.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="FlowerGame\Flower.cpp">
+      <Filter>FlowerGame</Filter>
     </ClCompile>
-    <ClCompile Include="Assets.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="FlowerGame\FlowerGame.cpp">
+      <Filter>FlowerGame</Filter>
     </ClCompile>
-    <ClCompile Include="Enemy.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="FlowerGame\Player.cpp">
+      <Filter>FlowerGame</Filter>
     </ClCompile>
-    <ClCompile Include="FlowerGame.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="Other\Enemy.cpp">
+      <Filter>Other</Filter>
     </ClCompile>
-    <ClCompile Include="Flower.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="SpriteGame\SpriteGame.cpp">
+      <Filter>SpriteGame</Filter>
     </ClCompile>
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="Player.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Enemy.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Assets.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="FlowerGame.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Flower.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="..\build\Assets\animations\coin_spin.json">
@@ -69,5 +62,25 @@
     <None Include="..\build\Assets\tilemap\world.json">
       <Filter>Assets\Tilemaps</Filter>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="FlowerGame\Assets.h">
+      <Filter>FlowerGame</Filter>
+    </ClInclude>
+    <ClInclude Include="FlowerGame\Flower.h">
+      <Filter>FlowerGame</Filter>
+    </ClInclude>
+    <ClInclude Include="FlowerGame\FlowerGame.h">
+      <Filter>FlowerGame</Filter>
+    </ClInclude>
+    <ClInclude Include="FlowerGame\Player.h">
+      <Filter>FlowerGame</Filter>
+    </ClInclude>
+    <ClInclude Include="Other\Enemy.h">
+      <Filter>Other</Filter>
+    </ClInclude>
+    <ClInclude Include="SpriteGame\SpriteGame.h">
+      <Filter>SpriteGame</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

@@ -4,6 +4,9 @@
 
 namespace gl
 {
+	Game::Game() = default;
+	Game::~Game() = default;
+
 	void Game::Update(float dt)
 	{
 		m_scene->Update(dt);
