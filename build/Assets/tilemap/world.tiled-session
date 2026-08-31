@@ -12,16 +12,16 @@
             "scale": 1.1380208333333333,
             "selectedLayer": 0,
             "viewCenter": {
-                "x": 240.32951945080092,
+                "x": 239.8901601830663,
                 "y": 160.36613272311214
             }
         },
         "world.tmx": {
-            "scale": 1,
-            "selectedLayer": 0,
+            "scale": 1.5,
+            "selectedLayer": 2,
             "viewCenter": {
-                "x": 224,
-                "y": 145.5
+                "x": 246.3333333333333,
+                "y": 163.66666666666666
             }
         }
     },
@@ -33,14 +33,15 @@
     "map.tileWidth": 16,
     "openFiles": [
         "tileset.tsx",
-        "world.tmx"
+        "world.tmx",
+        "world.json"
     ],
     "project": "world.tiled-project",
     "property.type": "string",
     "recentFiles": [
         "tileset.tsx",
-        "world.tmx",
-        "world.json"
+        "world.json",
+        "world.tmx"
     ],
     "tileset.lastUsedFormat": "tsx",
     "tileset.tileSize": {

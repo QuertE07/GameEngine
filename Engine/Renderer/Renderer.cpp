@@ -117,8 +117,6 @@ void gl::Renderer::DrawModel(const Model& model, const Transform& transform) con
             DrawLine(v1.x, v1.y, v2.x, v2.y);
         }
     }
-
-    
 }
 
 void gl::Renderer::DrawDebugText(float x, float y, const char* text) const
@@ -137,6 +135,7 @@ void gl::Renderer::DrawTexture(Texture& texture, float x, float y, float angle, 
     destRect.x = x - (destRect.w * 0.5f);
     destRect.y = y - (destRect.h * 0.5f);
 
+    SDL_SetTextureScaleMode(texture.m_texture, SDL_SCALEMODE_NEAREST);
     SDL_RenderTextureRotated(m_renderer, texture.m_texture, NULL, &destRect, angle, NULL, flipH ? SDL_FLIP_HORIZONTAL : SDL_FLIP_NONE);
 }
 
@@ -155,5 +154,6 @@ void gl::Renderer::DrawTexture(Texture& texture, const Rect& source, float x, fl
     destRect.x = x - (destRect.w * 0.5f);
     destRect.y = y - (destRect.h * 0.5f);
 
+    SDL_SetTextureScaleMode(texture.m_texture, SDL_SCALEMODE_NEAREST);
     SDL_RenderTextureRotated(m_renderer, texture.m_texture, &sourceRect, &destRect, angle, NULL, flipH ? SDL_FLIP_HORIZONTAL : SDL_FLIP_NONE);
 }

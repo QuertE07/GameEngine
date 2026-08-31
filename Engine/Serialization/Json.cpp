@@ -168,9 +168,9 @@ namespace gl::json
 
         return true;
     }
-    bool Read(const value_t& value, const std::string& name, std::vector<int> data, bool required)
+    bool Read(const value_t& value, const std::string& name, std::vector<int>& data, bool required)
     {
-        // check if the value has the "<name>" and is an array with 3 elements
+        // check if the value has the "<name>" and is an array
         if (!value.HasMember(name.c_str()) || !value[name.c_str()].IsArray())
         {
             if (required) std::cerr << "Could not read JSON value (std::vector<int>):" << name << std::endl;

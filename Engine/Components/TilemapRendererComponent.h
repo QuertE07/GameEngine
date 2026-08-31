@@ -22,7 +22,7 @@ namespace gl
 		std::string m_tilemapName;
 		res_t<class Tilemap> m_tilemap;
 
-		//std::vector<std::unique_ptr<class PhysicsBody>> m_physicsBodies;
+		std::vector<std::unique_ptr<class PhysicsBody>> m_physicsBodies;
 	};
 
 	
