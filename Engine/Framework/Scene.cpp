@@ -80,7 +80,7 @@ namespace gl
 
 	void Scene::Draw(const class Renderer& renderer)
 	{
-		for (auto& actor : m_actors | std::views::reverse) {
+		for (auto& actor : m_actors) {
 			actor->Draw(renderer);
 		}
 	}

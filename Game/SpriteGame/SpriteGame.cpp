@@ -13,7 +13,7 @@ bool SpriteGame::Initialize()
 
     m_scene = std::make_unique<Scene>();
     m_scene->SetGame(this);
-    m_scene->Load("data/scene.json");
+    m_scene->Load("scenes/scene.json");
     
     m_bgTexture = Resources().Get<Texture>("textures/oldtimes.png", Engine::Get().GetRenderer());
 
@@ -45,21 +45,26 @@ void SpriteGame::Update(float dt)
 
         m_score = 0;
         m_lives = 3;
-        m_gamestate = GameState::Game;
+        m_gamestate = GameState::StartLevel;
+        break;
+    case GameState::StartLevel:
+        m_stateTimer -= dt;
+        if (m_stateTimer <= 0)
+        {
+            //m_scene->RemoveAllActors();
+            m_scene->Load("scenes/level.json");
+
+            m_gamestate = GameState::Game;
+        }
         break;
     case GameState::Game:
         
         m_spawnTimer -= dt;
-        if (m_spawnTimer <= 0)
+
+        if (m_spawnTimer < 0)
         {
-            m_spawnTimer = m_spawnTime;
-            SpawnFlower(1.0f);
-            m_spawnCount++;
-            if (m_spawnCount > 1)
-            {
-                m_spawnCount = 0;
-                m_spawnTime *= 0.95f;
-            }
+            SpawnEnemy();
+            m_spawnTimer = 3.0f;
         }
 
         break;
@@ -78,7 +83,7 @@ void SpriteGame::Update(float dt)
 
 void SpriteGame::Draw(Renderer& renderer)
 {
-    renderer.DrawTexture(*m_bgTexture.get(), 960, 540);
+    renderer.DrawTexture(*m_bgTexture.get(), renderer.GetWidth() / 2, renderer.GetHeight() / 2);
 
     switch (m_gamestate)
     {
@@ -119,10 +124,20 @@ void SpriteGame::SpawnPlayer()
     m_scene->AddActor(std::move(player));
 }
 
-void SpriteGame::SpawnFlower(float decayRate)
+void SpriteGame::SpawnEnemy()
 {
-    auto flower = Factory::Instance().Create<Actor>("FlowerPrototype");
-    flower->SetPosition({ RandomFloat(100.0f, 1820.0f), RandomFloat(100.0f, 980.0f) });
+    int enemyIndex = RandomInt(2);
 
-    m_scene->AddActor(std::move(flower));
+    if (enemyIndex == 0)
+    {
+        auto enemy = Factory::Instance().Create<Actor>("EnemyPrototype");
+        enemy->SetPosition({ RandomFloat(0.0f, 1920.0f), RandomFloat(0, 1080) });
+        m_scene->AddActor(std::move(enemy));
+    }
+    else
+    {
+        auto enemy = Factory::Instance().Create<Actor>("FlyingEnemyPrototype");
+        enemy->SetPosition({ RandomFloat(0.0f, 1920.0f), RandomFloat(0, 1080) });
+        m_scene->AddActor(std::move(enemy));
+    }
 }

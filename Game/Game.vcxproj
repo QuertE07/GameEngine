@@ -177,6 +177,11 @@
     <ClCompile Include="FlowerGame\Player.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="Other\Enemy.cpp" />
+    <ClCompile Include="SpriteGame\CharacterBase.cpp" />
+    <ClCompile Include="SpriteGame\Damager.cpp" />
+    <ClCompile Include="SpriteGame\EnemyController.cpp" />
+    <ClCompile Include="SpriteGame\FlyingEnemyController.cpp" />
+    <ClCompile Include="SpriteGame\PlayerController.cpp" />
     <ClCompile Include="SpriteGame\SpriteGame.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -187,6 +192,29 @@
   <ItemGroup>
     <None Include="..\build\Assets\animations\coin_spin.json" />
     <None Include="..\build\Assets\data\scene.json" />
+    <None Include="..\build\Assets\SpriteGame\animations\coin_spin.json" />
+    <None Include="..\build\Assets\SpriteGame\animations\enemy_attack.json" />
+    <None Include="..\build\Assets\SpriteGame\animations\enemy_hit.json" />
+    <None Include="..\build\Assets\SpriteGame\animations\enemy_idle.json" />
+    <None Include="..\build\Assets\SpriteGame\animations\enemy_run.json" />
+    <None Include="..\build\Assets\SpriteGame\animations\eye_attack.json" />
+    <None Include="..\build\Assets\SpriteGame\animations\eye_hit.json" />
+    <None Include="..\build\Assets\SpriteGame\animations\eye_idle.json" />
+    <None Include="..\build\Assets\SpriteGame\animations\hero_attack.json" />
+    <None Include="..\build\Assets\SpriteGame\animations\hero_death.json" />
+    <None Include="..\build\Assets\SpriteGame\animations\hero_idle.json" />
+    <None Include="..\build\Assets\SpriteGame\animations\hero_jump.json" />
+    <None Include="..\build\Assets\SpriteGame\animations\hero_run.json" />
+    <None Include="..\build\Assets\SpriteGame\animations\skeleton_alt-attack.json" />
+    <None Include="..\build\Assets\SpriteGame\animations\skeleton_attack.json" />
+    <None Include="..\build\Assets\SpriteGame\animations\skeleton_death.json" />
+    <None Include="..\build\Assets\SpriteGame\animations\skeleton_hit.json" />
+    <None Include="..\build\Assets\SpriteGame\animations\skeleton_idle.json" />
+    <None Include="..\build\Assets\SpriteGame\animations\skeleton_shield.json" />
+    <None Include="..\build\Assets\SpriteGame\animations\skeleton_walk.json" />
+    <None Include="..\build\Assets\SpriteGame\scenes\level.json" />
+    <None Include="..\build\Assets\SpriteGame\scenes\scene.json" />
+    <None Include="..\build\Assets\SpriteGame\tilemap\world.json" />
     <None Include="..\build\Assets\tilemap\world.json" />
   </ItemGroup>
   <ItemGroup>
@@ -195,6 +223,11 @@
     <ClInclude Include="FlowerGame\FlowerGame.h" />
     <ClInclude Include="FlowerGame\Player.h" />
     <ClInclude Include="Other\Enemy.h" />
+    <ClInclude Include="SpriteGame\CharacterBase.h" />
+    <ClInclude Include="SpriteGame\Damager.h" />
+    <ClInclude Include="SpriteGame\EnemyController.h" />
+    <ClInclude Include="SpriteGame\FlyingEnemyController.h" />
+    <ClInclude Include="SpriteGame\PlayerController.h" />
     <ClInclude Include="SpriteGame\SpriteGame.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

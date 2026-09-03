@@ -11,6 +11,7 @@ public:
 	{
 		Title,
 		StartGame,
+		StartLevel,
 		Game,
 		GameOver
 	};
@@ -28,7 +29,7 @@ public:
 
 private:
 	void SpawnPlayer();
-	void SpawnFlower(float decayRate);
+	void SpawnEnemy();
 
 private:
 	GameState m_gamestate = GameState::Title;

@@ -12,15 +12,6 @@
     <Filter Include="Assets">
       <UniqueIdentifier>{a1aac075-ed22-4a0f-ae0e-b35846b582d7}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Assets\Scenes">
-      <UniqueIdentifier>{fb028ddf-13af-42ec-9145-bf97926f7fd0}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Assets\Animations">
-      <UniqueIdentifier>{59a47edc-67c9-4b00-8c81-41d0feb2a926}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Assets\Tilemaps">
-      <UniqueIdentifier>{ee02f4f7-b5f0-40d4-ab6e-34fc361fa258}</UniqueIdentifier>
-    </Filter>
     <Filter Include="FlowerGame">
       <UniqueIdentifier>{02f5f3f1-b5e6-46ae-bb27-40a1bb30e3f0}</UniqueIdentifier>
     </Filter>
@@ -29,6 +20,30 @@
     </Filter>
     <Filter Include="SpriteGame">
       <UniqueIdentifier>{d49d9ccf-4db2-4bb4-a920-cf76d290472f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Assets\FlowerGame">
+      <UniqueIdentifier>{8c62deca-e0c4-48c7-b758-0b6f8868d05c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Assets\SpriteGame">
+      <UniqueIdentifier>{a934cb73-9858-4338-848a-f8d1a2e1431b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Assets\FlowerGame\Animations">
+      <UniqueIdentifier>{59a47edc-67c9-4b00-8c81-41d0feb2a926}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Assets\FlowerGame\Scenes">
+      <UniqueIdentifier>{fb028ddf-13af-42ec-9145-bf97926f7fd0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Assets\FlowerGame\Tilemaps">
+      <UniqueIdentifier>{ee02f4f7-b5f0-40d4-ab6e-34fc361fa258}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Assets\SpriteGame\Animations">
+      <UniqueIdentifier>{fd940a24-3747-4439-b069-c25fa21782a5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Assets\SpriteGame\Scenes">
+      <UniqueIdentifier>{28c1b85c-ae5b-49d9-b609-599e496fb5e9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Assets\SpriteGame\Tilemaps">
+      <UniqueIdentifier>{599d9b39-b05f-468c-87e1-b68cdfef231a}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -51,16 +66,100 @@
     <ClCompile Include="SpriteGame\SpriteGame.cpp">
       <Filter>SpriteGame</Filter>
     </ClCompile>
+    <ClCompile Include="SpriteGame\PlayerController.cpp">
+      <Filter>SpriteGame</Filter>
+    </ClCompile>
+    <ClCompile Include="SpriteGame\EnemyController.cpp">
+      <Filter>SpriteGame</Filter>
+    </ClCompile>
+    <ClCompile Include="SpriteGame\FlyingEnemyController.cpp">
+      <Filter>SpriteGame</Filter>
+    </ClCompile>
+    <ClCompile Include="SpriteGame\CharacterBase.cpp">
+      <Filter>SpriteGame</Filter>
+    </ClCompile>
+    <ClCompile Include="SpriteGame\Damager.cpp">
+      <Filter>SpriteGame</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="..\build\Assets\animations\coin_spin.json">
-      <Filter>Assets\Animations</Filter>
+      <Filter>Assets\FlowerGame\Animations</Filter>
     </None>
     <None Include="..\build\Assets\data\scene.json">
-      <Filter>Assets\Scenes</Filter>
+      <Filter>Assets\FlowerGame\Scenes</Filter>
     </None>
     <None Include="..\build\Assets\tilemap\world.json">
-      <Filter>Assets\Tilemaps</Filter>
+      <Filter>Assets\FlowerGame\Tilemaps</Filter>
+    </None>
+    <None Include="..\build\Assets\SpriteGame\tilemap\world.json">
+      <Filter>Assets\SpriteGame\Tilemaps</Filter>
+    </None>
+    <None Include="..\build\Assets\SpriteGame\animations\coin_spin.json">
+      <Filter>Assets\SpriteGame\Animations</Filter>
+    </None>
+    <None Include="..\build\Assets\SpriteGame\scenes\scene.json">
+      <Filter>Assets\SpriteGame\Scenes</Filter>
+    </None>
+    <None Include="..\build\Assets\SpriteGame\animations\skeleton_walk.json">
+      <Filter>Assets\SpriteGame\Animations</Filter>
+    </None>
+    <None Include="..\build\Assets\SpriteGame\animations\skeleton_hit.json">
+      <Filter>Assets\SpriteGame\Animations</Filter>
+    </None>
+    <None Include="..\build\Assets\SpriteGame\animations\skeleton_shield.json">
+      <Filter>Assets\SpriteGame\Animations</Filter>
+    </None>
+    <None Include="..\build\Assets\SpriteGame\animations\skeleton_idle.json">
+      <Filter>Assets\SpriteGame\Animations</Filter>
+    </None>
+    <None Include="..\build\Assets\SpriteGame\animations\skeleton_death.json">
+      <Filter>Assets\SpriteGame\Animations</Filter>
+    </None>
+    <None Include="..\build\Assets\SpriteGame\animations\skeleton_alt-attack.json">
+      <Filter>Assets\SpriteGame\Animations</Filter>
+    </None>
+    <None Include="..\build\Assets\SpriteGame\animations\skeleton_attack.json">
+      <Filter>Assets\SpriteGame\Animations</Filter>
+    </None>
+    <None Include="..\build\Assets\SpriteGame\scenes\level.json">
+      <Filter>Assets\SpriteGame\Scenes</Filter>
+    </None>
+    <None Include="..\build\Assets\SpriteGame\animations\eye_idle.json">
+      <Filter>Assets\SpriteGame\Animations</Filter>
+    </None>
+    <None Include="..\build\Assets\SpriteGame\animations\hero_attack.json">
+      <Filter>Assets\SpriteGame\Animations</Filter>
+    </None>
+    <None Include="..\build\Assets\SpriteGame\animations\hero_death.json">
+      <Filter>Assets\SpriteGame\Animations</Filter>
+    </None>
+    <None Include="..\build\Assets\SpriteGame\animations\hero_idle.json">
+      <Filter>Assets\SpriteGame\Animations</Filter>
+    </None>
+    <None Include="..\build\Assets\SpriteGame\animations\hero_jump.json">
+      <Filter>Assets\SpriteGame\Animations</Filter>
+    </None>
+    <None Include="..\build\Assets\SpriteGame\animations\hero_run.json">
+      <Filter>Assets\SpriteGame\Animations</Filter>
+    </None>
+    <None Include="..\build\Assets\SpriteGame\animations\enemy_attack.json">
+      <Filter>Assets\SpriteGame\Animations</Filter>
+    </None>
+    <None Include="..\build\Assets\SpriteGame\animations\enemy_hit.json">
+      <Filter>Assets\SpriteGame\Animations</Filter>
+    </None>
+    <None Include="..\build\Assets\SpriteGame\animations\enemy_idle.json">
+      <Filter>Assets\SpriteGame\Animations</Filter>
+    </None>
+    <None Include="..\build\Assets\SpriteGame\animations\enemy_run.json">
+      <Filter>Assets\SpriteGame\Animations</Filter>
+    </None>
+    <None Include="..\build\Assets\SpriteGame\animations\eye_attack.json">
+      <Filter>Assets\SpriteGame\Animations</Filter>
+    </None>
+    <None Include="..\build\Assets\SpriteGame\animations\eye_hit.json">
+      <Filter>Assets\SpriteGame\Animations</Filter>
     </None>
   </ItemGroup>
   <ItemGroup>
@@ -80,6 +179,21 @@
       <Filter>Other</Filter>
     </ClInclude>
     <ClInclude Include="SpriteGame\SpriteGame.h">
+      <Filter>SpriteGame</Filter>
+    </ClInclude>
+    <ClInclude Include="SpriteGame\PlayerController.h">
+      <Filter>SpriteGame</Filter>
+    </ClInclude>
+    <ClInclude Include="SpriteGame\EnemyController.h">
+      <Filter>SpriteGame</Filter>
+    </ClInclude>
+    <ClInclude Include="SpriteGame\FlyingEnemyController.h">
+      <Filter>SpriteGame</Filter>
+    </ClInclude>
+    <ClInclude Include="SpriteGame\CharacterBase.h">
+      <Filter>SpriteGame</Filter>
+    </ClInclude>
+    <ClInclude Include="SpriteGame\Damager.h">
       <Filter>SpriteGame</Filter>
     </ClInclude>
   </ItemGroup>

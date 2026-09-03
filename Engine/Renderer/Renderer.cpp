@@ -27,6 +27,7 @@ bool gl::Renderer::Initialize(const char* name, int width, int height)
         return false;
     }
 
+    SDL_SetDefaultTextureScaleMode(m_renderer, SDL_SCALEMODE_NEAREST);
     SDL_SetRenderVSync(m_renderer, 1);
 
     if (!TTF_Init()) {
@@ -124,23 +125,28 @@ void gl::Renderer::DrawDebugText(float x, float y, const char* text) const
     SDL_RenderDebugText(m_renderer, x, y, text);
 }
 
-void gl::Renderer::DrawTexture(Texture& texture, float x, float y, float angle, float scale, bool flipH) const
+void gl::Renderer::DrawTexture(Texture& texture, float x, float y, float angle, float scale, bool flipH, const Vector2& origin) const
 {
     Vector2 size = texture.m_size;
+
+    float cameraX = (m_cameraEnabled) ? (m_camera.x - m_width / 2) : 0.0f;
+    float cameraY = (m_cameraEnabled) ? (m_camera.y - m_height / 2) : 0.0f;
 
     SDL_FRect destRect;
     destRect.w = size.x * scale;
     destRect.h = size.y * scale;
 
-    destRect.x = x - (destRect.w * 0.5f);
-    destRect.y = y - (destRect.h * 0.5f);
+    destRect.x = (x - cameraX) - (destRect.w * origin.x);
+    destRect.y = (y - cameraY) - (destRect.h * origin.y);
 
-    SDL_SetTextureScaleMode(texture.m_texture, SDL_SCALEMODE_NEAREST);
     SDL_RenderTextureRotated(m_renderer, texture.m_texture, NULL, &destRect, angle, NULL, flipH ? SDL_FLIP_HORIZONTAL : SDL_FLIP_NONE);
 }
 
-void gl::Renderer::DrawTexture(Texture& texture, const Rect& source, float x, float y, float angle, float scale, bool flipH) const
+void gl::Renderer::DrawTexture(Texture& texture, const Rect& source, float x, float y, float angle, float scale, bool flipH, const Vector2& origin) const
 {
+    float cameraX = (m_cameraEnabled) ? (m_camera.x - m_width / 2) : 0.0f;
+    float cameraY = (m_cameraEnabled) ? (m_camera.y - m_height / 2) : 0.0f;
+
     SDL_FRect sourceRect;
     sourceRect.x = source.x;
     sourceRect.y = source.y;
@@ -151,9 +157,8 @@ void gl::Renderer::DrawTexture(Texture& texture, const Rect& source, float x, fl
     destRect.w = source.w * scale;
     destRect.h = source.h * scale;
 
-    destRect.x = x - (destRect.w * 0.5f);
-    destRect.y = y - (destRect.h * 0.5f);
+    destRect.x = (x - cameraX) - (destRect.w * origin.x);
+    destRect.y = (y - cameraY) - (destRect.h * origin.y);
 
-    SDL_SetTextureScaleMode(texture.m_texture, SDL_SCALEMODE_NEAREST);
     SDL_RenderTextureRotated(m_renderer, texture.m_texture, &sourceRect, &destRect, angle, NULL, flipH ? SDL_FLIP_HORIZONTAL : SDL_FLIP_NONE);
 }

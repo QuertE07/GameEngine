@@ -29,7 +29,7 @@ namespace gl
 
         for (auto& component : m_components)
         {
-            component->Update(dt);
+            if (component->IsActive()) component->Update(dt);
         }
 
         //m_transform.position += (m_velocity * dt);
@@ -41,7 +41,10 @@ namespace gl
         for (auto& component : m_components)
         {
             auto rendererComponent = dynamic_cast<RendererComponent*>(component.get());
-            if (rendererComponent) rendererComponent->Draw(renderer);
+            if (rendererComponent)
+            {
+                if (rendererComponent->IsActive()) rendererComponent->Draw(renderer);
+            }
         }
     }
 
