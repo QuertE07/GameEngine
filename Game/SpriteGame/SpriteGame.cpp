@@ -83,7 +83,7 @@ void SpriteGame::Update(float dt)
 
 void SpriteGame::Draw(Renderer& renderer)
 {
-    renderer.DrawTexture(*m_bgTexture.get(), renderer.GetWidth() / 2, renderer.GetHeight() / 2);
+    renderer.DrawTexture(*m_bgTexture.get(), renderer.GetWidth() / 2.0f, renderer.GetHeight() / 2.0f);
 
     switch (m_gamestate)
     {

@@ -68,6 +68,6 @@ namespace gl
 		ParticleSystem m_particleSystem;
 		Audio m_audio;
 
-		Physics m_physics;
+		Physics m_physics{};
 	};
 }

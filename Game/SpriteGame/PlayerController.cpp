@@ -24,13 +24,13 @@ void PlayerController::Update(float dt)
 	{
 	case CharacterBase::State::Move:
 	{
-		float dir = (gl::Engine::Get().GetInput().GetKeyDown(SDL_SCANCODE_RIGHT)) - (gl::Engine::Get().GetInput().GetKeyDown(SDL_SCANCODE_LEFT));
+		int dir = (gl::Engine::Get().GetInput().GetKeyDown(SDL_SCANCODE_RIGHT)) - (gl::Engine::Get().GetInput().GetKeyDown(SDL_SCANCODE_LEFT));
 		if (gl::Engine::Get().GetInput().GetKeyDown(SDL_SCANCODE_Z))
 		{
 			velocity.y = -500.0f;
 		}
 
-		if (dir != 0.0f)
+		if (dir != 0)
 		{
 			velocity.x = dir * 100.0f;
 			m_rendererComponent->Play("run");

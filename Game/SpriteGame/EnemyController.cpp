@@ -25,7 +25,7 @@ void EnemyController::Update(float dt)
 	{
 	case CharacterBase::State::Move:
 	{
-		float dir;
+		int dir = 0;
 
 		auto player = m_scene->GetActorByName<Actor>("PlayerPrototype");
 		if (player)
@@ -36,7 +36,7 @@ void EnemyController::Update(float dt)
 			dir = (playerPosition.x > position.x) - (playerPosition.x < position.x);
 		}
 
-		if (dir != 0.0f)
+		if (dir != 0)
 		{
 			velocity.x = dir * 50.0f;
 			m_rendererComponent->Play("walk");
