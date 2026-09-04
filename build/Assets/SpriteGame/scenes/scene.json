@@ -1,39 +1,6 @@
 {
   "actors": [
     {
-      "type": "Actor",
-      "prototype": true,
-      "name": "CoinPrototype",
-      "tag": "coin",
-      "active": true,
-      "persistent": true,
-      "transform": {
-        "position": [ 80, 80 ],
-        "rotation": 0,
-        "scale": 3
-      },
-      "components": [
-        {
-          "type": "SpriteAnimatorRendererComponent",
-          "default_animation": "idle",
-          "animations": [
-            {
-              "name": "idle",
-              "texture_frames": "animations/skeleton_idle.json",
-              "fps": 10,
-              "loop": true
-            },
-            {
-              "name": "walk",
-              "texture_frames": "animations/skeleton_walk.json",
-              "fps": 10,
-              "loop": true
-            }
-          ]
-        }
-      ]
-    },
-    {
       "type": "PlayerController",
       "prototype": true,
       "name": "PlayerPrototype",
@@ -66,13 +33,13 @@
               "name": "attack",
               "texture_frames": "animations/hero_attack.json",
               "fps": 10,
-              "loop": true
+              "loop": false
             },
             {
-              "name": "hit",
-              "texture_frames": "animations/hero_hit.json",
+              "name": "death",
+              "texture_frames": "animations/hero_death.json",
               "fps": 10,
-              "loop": true
+              "loop": false
             }
           ]
         },
@@ -93,7 +60,7 @@
       "name": "EnemyPrototype",
       "tag": "enemy",
       "active": true,
-      "health": 20,
+      "health": 25,
       "transform": {
         "position": [ 960, 540 ],
         "rotation": 0,
@@ -120,13 +87,19 @@
               "name": "attack",
               "texture_frames": "animations/skeleton_attack.json",
               "fps": 10,
-              "loop": true
+              "loop": false
             },
             {
               "name": "hit",
               "texture_frames": "animations/skeleton_hit.json",
               "fps": 10,
-              "loop": true
+              "loop": false
+            },
+            {
+              "name": "death",
+              "texture_frames": "animations/skeleton_death.json",
+              "fps": 10,
+              "loop": false
             }
           ]
         },
@@ -174,7 +147,7 @@
               "name": "hit",
               "texture_frames": "animations/eye_hit.json",
               "fps": 10,
-              "loop": true
+              "loop": false
             }
           ]
         },
@@ -204,10 +177,6 @@
         "scale": 1
       },
       "components": [
-        {
-          "type": "SpriteRendererComponent",
-          "texture": "textures/damager.png"
-        },
         {
           "type": "Box2DPhysicsComponent",
           "linear_damping": 2.0,

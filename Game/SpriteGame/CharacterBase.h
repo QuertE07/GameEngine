@@ -12,6 +12,8 @@ public:
 		Death
 	};
 
+	float GetHealth() const { return m_health; }
+
 	void Read(const gl::json::value_t& value) override;
 
 protected:

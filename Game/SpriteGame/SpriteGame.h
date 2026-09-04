@@ -13,6 +13,7 @@ public:
 		StartGame,
 		StartLevel,
 		Game,
+		Dead,
 		GameOver
 	};
 
@@ -54,4 +55,5 @@ private:
 
 	gl::Text* m_scoreText{ nullptr };
 	gl::Text* m_livesText{ nullptr };
+	gl::Text* m_healthText{ nullptr };
 };

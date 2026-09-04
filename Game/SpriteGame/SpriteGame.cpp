@@ -22,10 +22,11 @@ bool SpriteGame::Initialize()
     m_titleText->Create(Engine::Get().GetRenderer(), "Sidescroller", Color{ 1.0f, 1.0f, 1.0f });
 
     m_gameOverText = new Text(Resources().GetWithID<Font>("gameOver_font", "fonts/Hyacinth.ttf", 140.0f));
-    m_gameOverText->Create(Engine::Get().GetRenderer(), "Game Over", Color{ 1.0f, 0.4f, 0.6f });
+    m_gameOverText->Create(Engine::Get().GetRenderer(), "Game Over", Color{ 1.0f, 0.2f, 0.2f });
 
     m_scoreText = new Text(Resources().GetWithID<Font>("score_font", "fonts/Hyacinth.ttf", 60.0f));
     m_livesText = new Text(Resources().GetWithID<Font>("lives_font", "fonts/Hyacinth.ttf", 60.0f));
+    m_healthText = new Text(Resources().GetWithID<Font>("health_font", "fonts/Hyacinth.ttf", 60.0f));
 
     return false;
 }
@@ -38,12 +39,9 @@ void SpriteGame::Update(float dt)
         if (Engine::Get().GetInput().GetKeyPressed(SDL_SCANCODE_SPACE))
         {
             m_gamestate = GameState::StartGame;
-            Engine::Get().GetAudio().PlaySound("bgm");
         }
         break;
     case GameState::StartGame:
-        SpawnPlayer();
-
         m_score = 0;
         m_lives = 3;
         m_gamestate = GameState::StartLevel;
@@ -52,7 +50,7 @@ void SpriteGame::Update(float dt)
         m_stateTimer -= dt;
         if (m_stateTimer <= 0)
         {
-            //m_scene->RemoveAllActors();
+            SpawnPlayer();
             m_scene->Load("scenes/level.json");
 
             m_gamestate = GameState::Game;
@@ -68,6 +66,14 @@ void SpriteGame::Update(float dt)
             m_spawnTimer = 3.0f;
         }
 
+        break;
+    case GameState::Dead:
+        m_stateTimer -= dt;
+        if (m_stateTimer <= 0)
+        {
+            m_scene->RemoveAllActors();
+            m_gamestate = GameState::StartLevel;
+        }
         break;
     case GameState::GameOver:
 
@@ -90,16 +96,25 @@ void SpriteGame::Draw(Renderer& renderer)
     switch (m_gamestate)
     {
     case GameState::Title:
-        m_titleText->Draw(renderer, 650, 500);
+        m_titleText->Draw(renderer, 750, 500);
         break;
     case GameState::StartGame:
     case GameState::Game:
+    case GameState::Dead:
+    {
         m_scoreText->Create(renderer, "Score: " + std::to_string(m_score), { 1.0f, 1.0f, 1.0f });
         m_scoreText->Draw(renderer, 30, 30);
 
-        m_livesText->Create(renderer, "Lives: " + std::to_string(m_lives), { 1.0f, 1.0f, 1.0f });
-        m_livesText->Draw(renderer, 30, 150);
+        auto player = m_scene->GetActorByName<PlayerController>("PlayerPrototype");
+        if (player)
+        {
+            m_healthText->Create(renderer, "Health: " + std::to_string((int)(player->GetHealth())), { 1.0f, 1.0f, 1.0f });
+            m_healthText->Draw(renderer, 30, 150);
+        }
 
+        m_livesText->Create(renderer, "Lives: " + std::to_string(m_lives), { 1.0f, 1.0f, 1.0f });
+        m_livesText->Draw(renderer, 30, 270);
+    }
         break;
     case GameState::GameOver:
         m_gameOverText->Draw(renderer, 750, 450);
@@ -113,10 +128,13 @@ void SpriteGame::LifeLost()
 
     if (m_lives == 0)
     {
-        m_scene->GetActorByName<PlayerController>("PlayerPrototype")->SetDestroyed();
         m_gamestate = GameState::GameOver;
-        m_stateTimer = 2.0f;
     }
+    else
+    {
+        m_gamestate = GameState::Dead;
+    }
+    m_stateTimer = 2.0f;
 }
 
 void SpriteGame::SpawnPlayer()

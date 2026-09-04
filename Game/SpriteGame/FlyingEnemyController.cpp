@@ -4,6 +4,7 @@
 #include "Components/SpriteAnimatorRendererComponent.h"
 #include "Engine.h"
 #include "Damager.h"
+#include "SpriteGame.h"
 
 FACTORY_REGISTER(FlyingEnemyController)
 
@@ -37,7 +38,6 @@ void FlyingEnemyController::Update(float dt)
 
 			if (position.Distance(playerPosition) < 40)
 			{
-				std::cout << "here" << std::endl;
 				m_state = State::Attack;
 				m_rendererComponent->Play("attack");
 				m_hasAttacked = false;
@@ -49,7 +49,8 @@ void FlyingEnemyController::Update(float dt)
 		if (m_rendererComponent->GetFrame() == 6 && !m_hasAttacked)
 		{
 			auto damager = gl::Factory::Instance().Create<Damager>("DamagerPrototype");
-			damager->SetPosition(GetTransform().position);
+			damager->SetTag("EnemyDamager");
+			damager->SetPosition(GetTransform().position + gl::Vector2{ 30.0f * ((m_rendererComponent->GetFlipH()) ? -1 : 1), 10.0f });
 			damager->SetDamage(1);
 			m_scene->AddActor(std::move(damager));
 			m_hasAttacked = true;
@@ -69,6 +70,10 @@ void FlyingEnemyController::Update(float dt)
 		}
 		break;
 	case CharacterBase::State::Death:
+		if (m_rendererComponent->IsAnimationDone())
+		{
+			SetDestroyed();
+		}
 		break;
 	default:
 		break;
@@ -79,16 +84,17 @@ void FlyingEnemyController::Update(float dt)
 
 void FlyingEnemyController::OnCollision(gl::Actor* other)
 {
-	if (other->GetTag() == "PlayerDamager")
+	if (other->GetTag() == "PlayerDamager" && m_state != State::Death)
 	{
 		m_state = State::Hit;
 		m_rendererComponent->Play("hit");
 		Damager* damager = dynamic_cast<Damager*>(other);
 		if (damager) m_health -= damager->GetDamage();
-		std::cout << "HitEnemy" << std::endl;
 		if (m_health <= 0.0f)
 		{
-			SetDestroyed();
+			m_state = State::Death;
+			auto game = dynamic_cast<SpriteGame*>(m_scene->GetGame());
+			game->AddPoints(100);
 		}
 
 		other->SetDestroyed();
