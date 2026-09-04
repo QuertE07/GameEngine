@@ -81,6 +81,13 @@ The `Game/` directory contains demo game projects (`FlowerGame`, `SpriteGame`) t
 
 Build and run one of the game projects to see the engine in action.
 
+# Controls
+
+SpriteGame:
+- Move with arrow keys
+- Jump with Z
+- Attack with X
+
 ## Architecture Overview
 
 The engine follows a component-based design:
