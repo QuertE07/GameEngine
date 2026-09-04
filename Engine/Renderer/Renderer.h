@@ -33,6 +33,7 @@ namespace gl
 		int GetWidth() const { return m_width; }
 		int GetHeight() const { return m_height; }
 
+		const Vector2& GetCamera() { return m_camera; }
 		void SetCamera(const Vector2& camera) { m_camera = camera; }
 		void EnableCamera(bool enable = true) { m_cameraEnabled = enable; }
 

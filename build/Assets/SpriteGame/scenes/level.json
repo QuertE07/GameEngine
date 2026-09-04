@@ -44,30 +44,6 @@
           "gravity_scale": 1
         }
       ]
-    },
-    {
-      "type": "CratePrototype",
-      "prototype": false,
-      "name": "Crate",
-      "tag": "prop",
-      "active": true,
-      "transform": {
-        "position": [ 80, 0 ],
-        "rotation": 0,
-        "scale": 1
-      }
-    },
-    {
-      "type": "CratePrototype",
-      "prototype": false,
-      "name": "Crate",
-      "tag": "prop",
-      "active": true,
-      "transform": {
-        "position": [ 300, 0 ],
-        "rotation": 0,
-        "scale": 1
-      }
     }
   ]
 }

@@ -30,6 +30,7 @@ public:
 private:
 	void SpawnPlayer();
 	void SpawnEnemy();
+	void DrawBackground(class gl::Renderer& renderer);
 
 private:
 	GameState m_gamestate = GameState::Title;

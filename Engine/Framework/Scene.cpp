@@ -3,6 +3,7 @@
 #include "Actor.h"
 #include "Core/Factory.h"
 #include "Components/ColliderComponent.h"
+#include "Components/TilemapRendererComponent.h"
 
 namespace gl
 {
@@ -81,6 +82,10 @@ namespace gl
 	void Scene::Draw(const class Renderer& renderer)
 	{
 		for (auto& actor : m_actors) {
+			if (actor->GetComponent<TilemapRendererComponent>()) actor->Draw(renderer);
+		}
+		for (auto& actor : m_actors) {
+			if (actor->GetComponent<TilemapRendererComponent>()) continue;
 			actor->Draw(renderer);
 		}
 	}

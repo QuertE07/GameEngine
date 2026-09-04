@@ -94,7 +94,7 @@ namespace gl
 						std::cerr << "Could not load texture frames: " << texture_frames << std::endl;
 					}
 				}
-				JSON_READ_NAME_REQ(animatorValue, "frames_per_second", spriteAnimation.fps);
+				JSON_READ_NAME_REQ(animatorValue, "fps", spriteAnimation.fps);
 				JSON_READ_NAME(animatorValue, "loop", spriteAnimation.loop);
 				m_spriteAnimations[ToLower(spriteAnimation.name)] = spriteAnimation;
 			}

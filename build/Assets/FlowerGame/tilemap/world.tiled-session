@@ -12,20 +12,20 @@
             "scale": 1.1380208333333333,
             "selectedLayer": 0,
             "viewCenter": {
-                "x": 239.8901601830663,
-                "y": 160.36613272311214
+                "x": 240.32951945080097,
+                "y": 160.36613272311212
             }
         },
         "world.tmx": {
             "scale": 1.5,
             "selectedLayer": 2,
             "viewCenter": {
-                "x": 246.3333333333333,
-                "y": 163.66666666666666
+                "x": 239.66666666666669,
+                "y": 159.66666666666666
             }
         }
     },
-    "last.exportedFilePath": "C:/Neumont/Q4/GAT150-IntroToGameProgramming/GAT150/GameEngine/build/Assets/tilemap",
+    "last.exportedFilePath": "C:/Neumont/Q4/GAT150-IntroToGameProgramming/GAT150/GameEngine/build/Assets/SpriteGame/tilemap",
     "last.imagePath": "C:/Neumont/Q4/GAT150-IntroToGameProgramming/GAT150/GameEngine/build/Assets/textures",
     "map.lastUsedExportFilter": "JSON map files (*.tmj *.json)",
     "map.lastUsedFormat": "tmx",
