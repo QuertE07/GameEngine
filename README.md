@@ -62,7 +62,7 @@ All dependencies are included in the `ThirdParty/` directory of this repository,
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/yourusername/your-engine.git
+   git clone https://github.com/QuertE07/GameEngine.git
    ```
 2. Open `GameEngine.slnx` in Visual Studio.
 3. Select your desired configuration (e.g. `Debug` or `Release`) and platform (e.g. `x64`).
