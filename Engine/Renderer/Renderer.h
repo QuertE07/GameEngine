@@ -17,6 +17,9 @@ namespace gl
 		void Clear() const;
 		void Present() const;
 
+		bool BeginFrame();
+		bool EndFrame() const;
+
 		void SetColor(Uint8 r, Uint8 g, Uint8 b, Uint8 a = 255) const;
 		void SetColor(float r, float g, float b, float a = 1.0f) const;
 		void SetColor(const Color& color) const;
@@ -43,6 +46,10 @@ namespace gl
 	private:
 		SDL_Window* m_window = nullptr;
 		SDL_Renderer* m_renderer = nullptr;
+
+		SDL_GPUDevice* m_gpuDevice = nullptr;
+		SDL_GPUCommandBuffer* m_commandBuffer = nullptr;
+		SDL_GPURenderPass* m_renderPass = nullptr;
 
 		bool m_cameraEnabled = true;
 		Vector2 m_camera = { 0, 0 };
